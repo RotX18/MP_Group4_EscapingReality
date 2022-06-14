@@ -2,7 +2,10 @@
 
 This is a VR project that is currently a work-in-progress.
 
-Collaborators:
+## Collaborators:
+
 Ryan Oh Tze Xuan
+
 Ong Jian Qin
+
 Stanley Lu Liang Yu
