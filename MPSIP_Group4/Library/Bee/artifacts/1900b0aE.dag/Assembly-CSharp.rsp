@@ -379,7 +379,7 @@
 "Assets/Customizable_Furnture/Source/Scripts/OptionsDisplaySaveVar.cs"
 "Assets/Customizable_Furnture/Source/Scripts/PlayVideo.cs"
 "Assets/Customizable_Furnture/Source/Scripts/SimpleSwitchMaterial.cs"
-"Assets/Res/Scripts/Cube.cs"
+"Assets/Res/Scripts/GridElement.cs"
 "Assets/Res/Scripts/GridSpawner.cs"
 -langversion:9.0
 

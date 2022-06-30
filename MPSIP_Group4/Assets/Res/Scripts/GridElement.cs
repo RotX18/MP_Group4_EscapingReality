@@ -6,39 +6,40 @@ using UnityEngine;
 /// Class for every grid element
 /// </summary>
 
-public class Cube : MonoBehaviour
-{
+public class GridElement : MonoBehaviour {
     #region PRIVATE VARS
-    public int _id;
-    public float _posX;
-    public float _posY;
+
+    private int _id;
+    private float _posX;
+    private float _posY;
 
     #endregion
 
     #region PROPERTIES
-    public int ID { 
-        get{
+
+    public int ID {
+        get {
             return _id;
         }
-        set{
+        set {
             _id = value;
         }
     }
 
-    public float GridX{
-        get{
+    public float GridX {
+        get {
             return _posX;
         }
-        set{
+        set {
             _posX = value;
         }
     }
 
-    public float GridY { 
-        get{
+    public float GridY {
+        get {
             return _posY;
         }
-        set{
+        set {
             _posY = value;
         }
     }
