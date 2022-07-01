@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637921639206014416
-    m_Hash: 2202704412
+      ticks: 637921663385119274
+    m_Hash: 494526322
   m_LockFileStatus:
     m_FilePath: D:/GitHub/MPSIP_Group4/MPSIP_Group4/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637921639206318630
-    m_Hash: 3988150855
+      ticks: 637921663385222707
+    m_Hash: 923824736
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -3565,10 +3565,16 @@ m_ResolvedPackages:
   errors: []
   versions:
     all:
+    - 1.0.0-preview.4
+    - 1.0.4
+    - 1.0.5
+    - 1.0.6
     - 1.1.0
+    - 1.1.1
     compatible:
     - 1.1.0
-    verified: 1.1.0
+    - 1.1.1
+    verified: 1.1.1
   dependencies:
   - name: com.unity.modules.subsystems
     version: 1.0.0
@@ -3590,7 +3596,7 @@ m_ResolvedPackages:
     capabilities: 7
   hideInEditor: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 0
+  datePublishedTicks: 637314426150000000
   documentationUrl: 
   hasRepository: 1
   repository:
