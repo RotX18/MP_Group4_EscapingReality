@@ -6,11 +6,20 @@ using UnityEngine;
 /// Class for every grid element
 /// </summary>
 
-public class GridElement : MonoBehaviour {
+public class GridElement : MonoBehaviour 
+{
+    #region PUBLIC VARS
+
+    public bool correctElement;
+
+    #endregion
+
     #region PRIVATE VARS
+
     private float _posX;
     private float _posY;
     private int _id;
+
     #endregion
 
     #region PROPERTIES
@@ -39,5 +48,9 @@ public class GridElement : MonoBehaviour {
             _id = value;
         }
     }
+
     #endregion
+
+    private void Start() {
+    }
 }
