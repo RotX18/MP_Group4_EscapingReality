@@ -8,22 +8,18 @@ using UnityEngine;
 
 public class GridElement : MonoBehaviour 
 {
-    #region PUBLIC VARS
-
-    public bool correctElement;
-
-    #endregion
-
     #region PRIVATE VARS
 
-    private float _posX;
-    private float _posY;
+    private bool _correctElement;
+    private int _posX;
+    private int _posY;
     private int _id;
 
     #endregion
 
     #region PROPERTIES
-    public float GridX {
+
+    public int GridX {
         get {
             return _posX;
         }
@@ -32,7 +28,7 @@ public class GridElement : MonoBehaviour
         }
     }
 
-    public float GridY {
+    public int GridY {
         get {
             return _posY;
         }
@@ -40,6 +36,7 @@ public class GridElement : MonoBehaviour
             _posY = value;
         }
     }
+
     public int ID {
         get {
             return _id;
@@ -49,8 +46,14 @@ public class GridElement : MonoBehaviour
         }
     }
 
-    #endregion
-
-    private void Start() {
+    public bool Correct{ 
+        get{
+            return _correctElement;
+        }
+        set{
+            _correctElement = true;
+        }
     }
+
+    #endregion
 }
