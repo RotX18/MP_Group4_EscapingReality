@@ -10,6 +10,7 @@ using UnityEngine;
 public class GridSpawner : MonoBehaviour
 {
     #region PUBLIC VARS
+
     //grid element that will be instantiated
     [Header("Object to be instantiated as elements of the grid")]
     public GameObject gridElement;
@@ -27,13 +28,27 @@ public class GridSpawner : MonoBehaviour
     public float spaceX;
     [Min(0)]
     public float spaceY;
+
     #endregion
 
     #region PRIVATE VARS
+
     private GameObject _instantiatedObj;
+    private List<GridElement> _elements = new();
+
     #endregion
 
-    private void Start() {
+    #region PROPERTIES
+
+    public List<GridElement> AllElements{ 
+        get{
+            return _elements;
+        }
+    }
+
+    #endregion
+
+    private void Awake() {
         for(int i = 0; i < lenY; i++){
             //for each column
             for(int j = 0; j < lenX; j++){
@@ -52,17 +67,27 @@ public class GridSpawner : MonoBehaviour
 
                 //setting the instantiated object as a child of the spawner
                 _instantiatedObj.transform.parent = gameObject.transform;
+
+                //adding to the elements list
+                _elements.Add(_instantiatedObj.GetComponent<GridElement>());
             }
         }
     }
 
-    public GameObject FindElementByID(int id){
-        //getting all GridElement components from spawner's children
-        GridElement[] children;
-        children = gameObject.transform.GetComponentsInChildren<GridElement>();
+    private void Start() {
+        for(int i = 0; i < lenY; i++) {
+            //for each row in the grid
+            //getting all elements in that row
+            List<GridElement> _currentRow = FindElementsInRow(i);
 
+            //randomly assigning one of the elements within the current role as the correct one
+            _currentRow[Random.Range(0, _currentRow.Count)].Correct = true;
+        }
+    }
+
+    public GameObject FindElementByID(int id){
         //iterating through the children array to find first element that has the same id as the query id
-        foreach(GridElement ele in children){ 
+        foreach(GridElement ele in _elements){ 
             if(ele.ID == id){
                 //returning gameObject if id matches
                 return ele.gameObject;
@@ -71,8 +96,37 @@ public class GridSpawner : MonoBehaviour
                 continue;
             }
         }
-
         //returning null if none of the elements in children have the same id
         return null;
+    }
+
+    public List<GridElement> FindElementsInRow(int row){
+        List<GridElement> result = new();
+
+        for(int i = 0; i < _elements.Count; i++){
+            //iterating through elements and adding to result if row matches
+            if(_elements[i].GridY == row){
+                result.Add(_elements[i]);
+            }
+            else{
+                continue;
+            }
+        }
+        return result;
+    }
+    
+    public List<GridElement> FindElementsInColumn(int column){
+        List<GridElement> result = new();
+
+        for(int i = 0; i < _elements.Count; i++) {
+            //iterating through elements and adding to result if row matches
+            if(_elements[i].GridX == column) {
+                result.Add(_elements[i]);
+            }
+            else {
+                continue;
+            }
+        }
+        return result;
     }
 }
