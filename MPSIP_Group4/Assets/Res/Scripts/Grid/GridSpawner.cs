@@ -74,17 +74,6 @@ public class GridSpawner : MonoBehaviour
         }
     }
 
-    private void Start() {
-        for(int i = 0; i < lenY; i++) {
-            //for each row in the grid
-            //getting all elements in that row
-            List<GridElement> _currentRow = FindElementsInRow(i);
-
-            //randomly assigning one of the elements within the current role as the correct one
-            _currentRow[Random.Range(0, _currentRow.Count)].Correct = true;
-        }
-    }
-
     public GameObject FindElementByID(int id){
         //iterating through the children array to find first element that has the same id as the query id
         foreach(GridElement ele in _elements){ 
