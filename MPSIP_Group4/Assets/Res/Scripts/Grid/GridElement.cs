@@ -10,10 +10,12 @@ public class GridElement : MonoBehaviour
 {
     #region PRIVATE VARS
 
-    private bool _correctElement;
     private int _posX;
     private int _posY;
-    private int _id;
+    public int _id;
+    private bool _correctElement;
+    private bool _clickable = false;
+    private bool _clicked = false;
 
     #endregion
 
@@ -51,7 +53,25 @@ public class GridElement : MonoBehaviour
             return _correctElement;
         }
         set{
-            _correctElement = true;
+            _correctElement = value;
+        }
+    }
+
+    public bool Clickable{ 
+        get{
+            return _clickable;
+        }
+        set{
+            _clickable = value;
+        }
+    }
+
+    public bool Clicked{ 
+        get{
+            return _clicked;
+        }
+        set{
+            _clicked = value;
         }
     }
 
