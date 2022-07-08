@@ -14,7 +14,8 @@ public class MouseInput : MonoBehaviour
     public Camera cam;
 
     //grid vars
-    public GameObject gridSpawner;
+    public GameObject gridSpawnerObj;
+    public GridManager gridManager;
 
     #endregion
 
@@ -33,7 +34,7 @@ public class MouseInput : MonoBehaviour
     #endregion
 
     private void Start() {
-        _elements = gridSpawner.GetComponent<GridSpawner>().AllElements;
+        _elements = gridSpawnerObj.GetComponent<GridSpawner>().AllElements;
 
         //sorting the elements in the grid to correct elements and wrong elements
         foreach(GridElement ele in _elements) {
@@ -50,14 +51,22 @@ public class MouseInput : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Mouse0)){
             //when the left mouse is pressed
             if(_hitObj != null){
-                if(_hitObj.GetComponent<GridElement>().Correct){
-                    //if element is correct, set the colour to green
-                    _hitObj.GetComponent<Renderer>().material.color = Color.green;
+                //if the raycast hit is not null
+                if(_hitObj.GetComponent<GridElement>().Clickable) {
+                    //if the element is clickable
+                    _hitObj.GetComponent<GridElement>().Clicked = true;
+
+                    //checking whether the element is correct
+                    if(_hitObj.GetComponent<GridElement>().Correct){
+                        //if element is correct, set the colour to green
+                        _hitObj.GetComponent<Renderer>().material.color = Color.green;
+                    }
+                    else{
+                        //if element is not correct, reset all current colours
+                        gridManager.ResetGrid();
+                    }
                 }
-                else{
-                    //if element is not correct, reset all current colours
-                    ResetColours();             
-                }
+                
             }
         }
     }
@@ -72,12 +81,6 @@ public class MouseInput : MonoBehaviour
         }
         else{
             _hitObj = null;
-        }
-    }
-
-    private void ResetColours(){ 
-        foreach(GridElement ele in _elements){
-            ele.GetComponent<Renderer>().material.color = Color.white;
         }
     }
 }
