@@ -55,7 +55,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6626340684400692706}
-  - component: {fileID: 6626340684400692707}
+  - component: {fileID: 5413363734450797852}
   m_Layer: 0
   m_Name: InputHandler
   m_TagString: Untagged
@@ -78,7 +78,7 @@ Transform:
   m_Father: {fileID: 6626340685432467904}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6626340684400692707
+--- !u!114 &5413363734450797852
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,10 +87,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6626340684400692709}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc5c255803104a246997e4eb6b7f6835, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e57154f00d0aed41a561a2c63a84566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
+  pointerOrigin: {fileID: 0}
   gridSpawnerObj: {fileID: 6626340685038323282}
   gridManager: {fileID: 6626340684123288870}
 --- !u!1 &6626340685038323282
