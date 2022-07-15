@@ -6,12 +6,11 @@ using UnityEngine;
 /// This script gets the game object under the mouse position and changes it to different colours
 /// </summary>
 
-public class MouseInput : MonoBehaviour
-{
+public class PlayerInput : MonoBehaviour {
     #region PUBLIC VARS
 
     //seletion vars
-    public Camera cam;
+    public GameObject pointerOrigin;
 
     //grid vars
     public GameObject gridSpawnerObj;
@@ -22,12 +21,12 @@ public class MouseInput : MonoBehaviour
     #region PRIVATE VARS
 
     //selection vars
-    private Ray _camToScreen;
+    private Ray _pointerRay;
     private RaycastHit _hit;
     private GameObject _hitObj;
 
     //grid vars
-    private  List<GridElement> _elements = new();
+    private List<GridElement> _elements = new();
     private Dictionary<int, GridElement> _correctEles = new();
     private Dictionary<int, GridElement> _wrongEles = new();
 
@@ -48,38 +47,38 @@ public class MouseInput : MonoBehaviour
     }
 
     private void Update() {
-        if(Input.GetKeyDown(KeyCode.Mouse0)){
-            //when the left mouse is pressed
-            if(_hitObj != null){
+        if(OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger)) {
+            //when the right trigger is pressed
+            if(_hitObj != null) {
                 //if the raycast hit is not null
                 if(_hitObj.GetComponent<GridElement>().Clickable) {
                     //if the element is clickable
                     _hitObj.GetComponent<GridElement>().Clicked = true;
 
                     //checking whether the element is correct
-                    if(_hitObj.GetComponent<GridElement>().Correct){
+                    if(_hitObj.GetComponent<GridElement>().Correct) {
                         //if element is correct, set the colour to green
                         _hitObj.GetComponent<Renderer>().material.color = Color.green;
                     }
-                    else{
+                    else {
                         //if element is not correct, reset all current colours
                         gridManager.ResetGrid();
                     }
                 }
-                
+
             }
         }
     }
 
     private void FixedUpdate() {
         //casting from the main camera to the point on screen where the mouse is
-        _camToScreen = Camera.main.ScreenPointToRay(Input.mousePosition);
+        _pointerRay = new Ray(pointerOrigin.transform.position, pointerOrigin.transform.forward);
 
-        if(Physics.Raycast(_camToScreen, out _hit)){
+        if(Physics.Raycast(_pointerRay, out _hit)) {
             //if the point where the player click contains a gameobject
             _hitObj = _hit.transform.gameObject;
         }
-        else{
+        else {
             _hitObj = null;
         }
     }
