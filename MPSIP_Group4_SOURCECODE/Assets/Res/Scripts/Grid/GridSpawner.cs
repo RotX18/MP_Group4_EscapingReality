@@ -10,7 +10,6 @@ using UnityEngine;
 public class GridSpawner : MonoBehaviour
 {
     #region PUBLIC VARS
-
     //grid element that will be instantiated
     [Header("Object to be instantiated as elements of the grid")]
     public GameObject gridElement;
@@ -28,24 +27,19 @@ public class GridSpawner : MonoBehaviour
     public float spaceX;
     [Min(0)]
     public float spaceY;
-
     #endregion
 
     #region PRIVATE VARS
-
     private GameObject _instantiatedObj;
     private List<GridElement> _elements = new();
-
     #endregion
 
     #region PROPERTIES
-
     public List<GridElement> AllElements{ 
         get{
             return _elements;
         }
     }
-
     #endregion
 
     private void Awake() {

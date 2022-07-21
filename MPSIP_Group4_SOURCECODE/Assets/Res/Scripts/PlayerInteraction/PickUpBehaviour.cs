@@ -5,16 +5,13 @@ using UnityEngine;
 public class PickUpBehaviour : MonoBehaviour
 {
     #region PUBLIC VARS
-
     public GameObject leftCon;
     public GameObject leftAnchor;
     public GameObject rightCon;
     public GameObject rightAnchor;
-
     #endregion
 
     #region PRIVATE VARS
-
     //left hand
     private GameObject _leftHandObj;
     private Ray _leftHandRay;
@@ -26,7 +23,6 @@ public class PickUpBehaviour : MonoBehaviour
     private Ray _rightHandRay;
     private RaycastHit _rightHandHit;
     private bool _doRightRaycast;
-
     #endregion
 
     private void Update() {
@@ -38,13 +34,23 @@ public class PickUpBehaviour : MonoBehaviour
                 //if there is an object below the left hand, set the obj's position to just below the hand
                 _leftHandObj.transform.SetParent(leftAnchor.transform);
                 _leftHandObj.transform.position = leftAnchor.transform.position;
+
+                //setting the vars if the object implements IPickable
+                if(_leftHandObj.GetComponent<IPickable>() != null){
+                    _leftHandObj.GetComponent<IPickable>().Grabbed = true;
+                    _leftHandObj.GetComponent<IPickable>().CurrentController = IPickable.Controller.LTouch;
+                }
             }
         }
         else {
-            //reset the vars
+            //When the left hand trigger is let go, reset the vars
             _doLeftRaycast = false;
-
             try {
+                if(_leftHandObj.GetComponent<IPickable>() != null) {
+                    _leftHandObj.GetComponent<IPickable>().Grabbed = false;
+                    _leftHandObj.GetComponent<IPickable>().CurrentController = IPickable.Controller.None;
+                    _leftHandObj.GetComponent<IPickable>().OnRelease();
+                }
                 _leftHandObj.transform.parent = null;
                 _leftHandObj = null;
             }
@@ -61,13 +67,25 @@ public class PickUpBehaviour : MonoBehaviour
                 //if there is an object below the right hand, set the obj's position to just below the hand
                 _rightHandObj.transform.SetParent(rightAnchor.transform);
                 _rightHandObj.transform.position = rightAnchor.transform.position;
+
+                //setting the vars for the object if it implements IPickable
+                if(_rightHandObj.GetComponent<IPickable>() != null) {
+                    _rightHandObj.GetComponent<IPickable>().Grabbed = true;
+                    _rightHandObj.GetComponent<IPickable>().CurrentController = IPickable.Controller.RTouch;
+                }
             }
         }
         else{
-            //reset the vars
+            //When the right hand trigger is let go, reset the vars
             _doRightRaycast = false;
-
             try {
+                //resetting the vars for the righthand obj if it implements IPickable
+                if(_rightHandObj.GetComponentInChildren<IPickable>() != null) {
+                    _rightHandObj.GetComponent<IPickable>().Grabbed = false;
+                    _rightHandObj.GetComponent<IPickable>().CurrentController = IPickable.Controller.None;
+                    _rightHandObj.GetComponent<IPickable>().OnRelease();
+                }
+
                 _rightHandObj.transform.parent = null;
                 _rightHandObj = null;
             }

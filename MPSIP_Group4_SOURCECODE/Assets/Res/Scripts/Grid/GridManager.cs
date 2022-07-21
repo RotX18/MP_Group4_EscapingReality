@@ -9,21 +9,17 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
     #region PUBLIC VARS
-
     public GridSpawner spawner;
     public int[] correctElementIDs;
-
     #endregion
 
     #region PRIVATE VARS
-
     private List<GridElement> _elements = new();
     private List<GridElement> _currentRow = new();
     private List<GridElement> _currentRowCorrects = new();
     private int _currentRowNumber = 0;
     private bool _getCorrects = true;
     private bool _doCorrectCheck = true;
-
     #endregion
 
     private void Start() {
