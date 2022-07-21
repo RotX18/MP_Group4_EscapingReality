@@ -25,9 +25,8 @@ public class SphereMovement : MonoBehaviour
 	}
 	void Update()
 	{
-
-		playerInput.x = Input.GetAxis("Horizontal");
-		playerInput.y = Input.GetAxis("Vertical");
+		playerInput.x = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x;
+		playerInput.y = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y;
 
 		//we do this to prevent the diagonal movement of the player input from exceed the value 
 		//we clamp it instead of normalizing it so that it is free directional
