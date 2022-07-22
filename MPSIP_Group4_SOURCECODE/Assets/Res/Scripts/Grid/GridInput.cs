@@ -6,20 +6,17 @@ using UnityEngine;
 /// This script gets the game object under the mouse position and changes it to different colours
 /// </summary>
 
-public class PlayerInput : MonoBehaviour {
+public class GridInput : MonoBehaviour {
     #region PUBLIC VARS
-
     //seletion vars
     public GameObject pointerOrigin;
 
     //grid vars
     public GameObject gridSpawnerObj;
     public GridManager gridManager;
-
     #endregion
 
     #region PRIVATE VARS
-
     //selection vars
     private Ray _pointerRay;
     private RaycastHit _hit;
@@ -29,7 +26,6 @@ public class PlayerInput : MonoBehaviour {
     private List<GridElement> _elements = new();
     private Dictionary<int, GridElement> _correctEles = new();
     private Dictionary<int, GridElement> _wrongEles = new();
-
     #endregion
 
     private void Start() {

@@ -9,18 +9,15 @@ using UnityEngine;
 public class GridElement : MonoBehaviour 
 {
     #region PRIVATE VARS
-
     private int _posX;
     private int _posY;
     public int _id;
     private bool _correctElement;
     private bool _clickable = false;
     private bool _clicked = false;
-
     #endregion
 
     #region PROPERTIES
-
     public int GridX {
         get {
             return _posX;
@@ -74,6 +71,5 @@ public class GridElement : MonoBehaviour
             _clicked = value;
         }
     }
-
     #endregion
 }
