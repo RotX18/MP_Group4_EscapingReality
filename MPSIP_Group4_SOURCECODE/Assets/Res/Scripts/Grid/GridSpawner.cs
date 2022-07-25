@@ -27,6 +27,12 @@ public class GridSpawner : MonoBehaviour
     public float spaceX;
     [Min(0)]
     public float spaceY;
+
+    //degrees to rotate the entire grid by
+    [Header("Initial rotation of the grid")]
+    public float rotX = 0;
+    public float rotY = 0;
+    public float rotZ = 0;
     #endregion
 
     #region PRIVATE VARS
@@ -66,6 +72,9 @@ public class GridSpawner : MonoBehaviour
                 _elements.Add(_instantiatedObj.GetComponent<GridElement>());
             }
         }
+
+        //rotating the grid after all elements have spawned
+        transform.Rotate(new Vector3(rotX, rotY, rotZ));
     }
 
     public GameObject FindElementByID(int id){
