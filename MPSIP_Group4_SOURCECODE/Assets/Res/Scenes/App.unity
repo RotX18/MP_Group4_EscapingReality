@@ -3935,11 +3935,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6626340685432467904, guid: 029cab7cf8ad40f45bd89b6843d47447, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6626340685432467904, guid: 029cab7cf8ad40f45bd89b6843d47447, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.17
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6626340685432467904, guid: 029cab7cf8ad40f45bd89b6843d47447, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3947,11 +3947,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6626340685432467904, guid: 029cab7cf8ad40f45bd89b6843d47447, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.96
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6626340685432467904, guid: 029cab7cf8ad40f45bd89b6843d47447, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 6626340685432467904, guid: 029cab7cf8ad40f45bd89b6843d47447, type: 3}
       propertyPath: m_LocalRotation.x
@@ -3959,7 +3959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6626340685432467904, guid: 029cab7cf8ad40f45bd89b6843d47447, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 6626340685432467904, guid: 029cab7cf8ad40f45bd89b6843d47447, type: 3}
       propertyPath: m_LocalRotation.z
@@ -3971,7 +3971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6626340685432467904, guid: 029cab7cf8ad40f45bd89b6843d47447, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 6626340685432467904, guid: 029cab7cf8ad40f45bd89b6843d47447, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -5130,7 +5130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 417878, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 417878, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
       propertyPath: m_LocalScale.x
@@ -5187,6 +5187,14 @@ PrefabInstance:
     - target: {fileID: 11406532, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406532, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
+      propertyPath: initialHoursValue
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406532, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
+      propertyPath: initialMinutesValue
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11418356, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
       propertyPath: m_Enabled
@@ -5454,7 +5462,7 @@ GameObject:
   - component: {fileID: 528606218}
   - component: {fileID: 528606221}
   m_Layer: 0
-  m_Name: Cube (20)
+  m_Name: CollideCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5551,6 +5559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballObj: {fileID: 118707990}
+  text: {fileID: 1458288397}
 --- !u!28 &547667466
 Texture2D:
   m_ObjectHideFlags: 0
@@ -6846,7 +6855,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 30, y: 90, z: 0}
 --- !u!28 &714808178
 Texture2D:
@@ -8548,7 +8557,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 417878, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 417878, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
       propertyPath: m_LocalScale.x
@@ -8604,6 +8613,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11406532, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406532, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
+      propertyPath: initialHoursValue
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406532, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
+      propertyPath: initialMinutesValue
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11418356, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
@@ -12245,7 +12262,7 @@ Transform:
   - {fileID: 1510016538}
   - {fileID: 528606217}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!28 &1392591819
 Texture2D:
@@ -12746,7 +12763,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!28 &1396878795
 Texture2D:
@@ -13424,7 +13441,7 @@ GameObject:
   - component: {fileID: 1458288398}
   - component: {fileID: 1458288397}
   m_Layer: 0
-  m_Name: New Text
+  m_Name: Alpha Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13453,7 +13470,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1458288395}
-  m_Text: Move ball
+  m_Text: "Move ball using \nLeft Thumbstick"
   m_OffsetZ: 0
   m_CharacterSize: 0.5
   m_LineSpacing: 1
@@ -15273,7 +15290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 417878, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 417878, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
       propertyPath: m_LocalScale.x
@@ -15330,6 +15347,14 @@ PrefabInstance:
     - target: {fileID: 11406532, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406532, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
+      propertyPath: initialHoursValue
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406532, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
+      propertyPath: initialMinutesValue
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11418356, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
       propertyPath: m_Enabled
@@ -17000,7 +17025,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!28 &1783748826
 Texture2D:
@@ -18789,6 +18814,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11406532, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
+      propertyPath: initialHoursValue
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406532, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
+      propertyPath: initialMinutesValue
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 11418356, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -19803,7 +19836,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!28 &2083197923
 Texture2D:
@@ -20053,7 +20086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 417878, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 417878, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
       propertyPath: m_LocalScale.x
@@ -20110,6 +20143,14 @@ PrefabInstance:
     - target: {fileID: 11406532, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406532, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
+      propertyPath: initialHoursValue
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406532, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
+      propertyPath: initialMinutesValue
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11418356, guid: 574ea592a0ebb814c8e7dad54ba216ba, type: 3}
       propertyPath: m_Enabled
@@ -20313,7 +20354,7 @@ Transform:
   - {fileID: 688893225}
   - {fileID: 1458288396}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!28 &2115474801
 Texture2D:
