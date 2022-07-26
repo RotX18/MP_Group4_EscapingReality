@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LockManager : MonoBehaviour, IPickable
+public class LockManager : MonoBehaviour, IPickable, IPuzzle
 {
     #region PUBLIC VARS
     public int correctCombination;
@@ -12,27 +12,53 @@ public class LockManager : MonoBehaviour, IPickable
     #region PRIVATE VARS
     private bool _doCombinationCheck = true;
     private bool _unlocked = false;
+    private Vector3 _initialPos;
+    private Quaternion _initialRot;
     #endregion
 
     #region PROPERTIES
-    public bool Grabbed {
-        get;
-        set;
-    } = false;
-
+    #region IPickable PROPERTIES
     public IPickable.Controller CurrentController {
         get;
         set;
     } = IPickable.Controller.None;
+
+    public bool Grabbed {
+        get;
+        set;
+    } = false;
     #endregion
 
-    #region PUBLIC METHODS
+    #region IPuzzle PROPERTIES
+    public bool Completed {
+        get;
+        set;
+    } = false;
+    #endregion
+    #endregion
+
+    #region INTERFACE METHODS
+    #region IPickable METHODS
     public void OnRelease(){ 
         foreach(LockDial ele in lockDials){
             ele.GetComponentInChildren<MeshRenderer>().material.color = Color.white;
         }
+        gameObject.transform.SetPositionAndRotation(_initialPos, _initialRot);
     }
     #endregion
+
+    #region IPuzzle METHODS
+    public void OnComplete(){
+        //ANY ANIMATIONS OR UNLOCK EVENTS TO BE DONE HERE
+        Debug.Log("LOCK HAS BEEN UNLOCKED");
+    }
+    #endregion
+    #endregion
+
+    private void Awake() {
+        _initialPos = gameObject.transform.position;
+        _initialRot = gameObject.transform.rotation;
+    }
 
     private void Update() {
         if(_doCombinationCheck && !_unlocked){
@@ -52,15 +78,10 @@ public class LockManager : MonoBehaviour, IPickable
         if(dialCombination.Equals(correctCombination.ToString()) && _unlocked == false) {
             //if the combination matches and the lock has not been unlocked
             _unlocked = true;
-            Unlock();
+            Completed = true;
         }
 
         yield return new WaitForEndOfFrame();
         _doCombinationCheck = true;
-    }
-
-    private void Unlock(){
-        //ANY ANIMATIONS OR UNLOCK EVENTS TO BE DONE HERE
-        Debug.Log("LOCK HAS BEEN UNLOCKED");
     }
 }

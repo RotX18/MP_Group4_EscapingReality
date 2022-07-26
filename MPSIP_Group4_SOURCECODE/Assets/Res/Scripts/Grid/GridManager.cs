@@ -6,7 +6,7 @@ using UnityEngine;
 /// Class that manages any given GridSpawner
 /// </summary>
 
-public class GridManager : MonoBehaviour
+public class GridManager : MonoBehaviour, IPuzzle
 {
     #region PUBLIC VARS
     public GridSpawner spawner;
@@ -18,8 +18,35 @@ public class GridManager : MonoBehaviour
     private List<GridElement> _currentRow = new();
     private List<GridElement> _currentRowCorrects = new();
     private int _currentRowNumber = 0;
+    private int _totalCorrects = 0;
+    private int _clickedCorrects = 0;
     private bool _getCorrects = true;
     private bool _doCorrectCheck = true;
+    #endregion
+
+    #region PROPERTIES
+    #region IPuzzle PROPERTIES
+    public bool Completed {
+        get;
+        set;
+    } = false;
+    #endregion
+
+    public int ClickedCorrects{
+        get{
+            return _clickedCorrects;
+        }
+        set{
+            _clickedCorrects = value;
+        }
+    }
+    #endregion
+
+    #region INTERFACE METHODS
+    public void OnComplete(){
+        //ADD COMPLETED EFFECTS HERE
+        Debug.Log("GRID HAS BEEN COMPLETED");
+    }
     #endregion
 
     private void Start() {
@@ -43,6 +70,13 @@ public class GridManager : MonoBehaviour
         foreach(GridElement ele in _currentRow){
             ele.Clickable = true;
         }
+
+        foreach(GridElement ele in _elements){ 
+            if(ele.Correct){
+                //keeping count the total number of correct elements
+                _totalCorrects++;
+            }
+        }
     }
 
     private void Update() {
@@ -54,6 +88,12 @@ public class GridManager : MonoBehaviour
         //check whether all correct elements have been clicked
         if(_doCorrectCheck){            
             StartCoroutine(CheckCorrects());
+        }
+
+        //completed check
+        if(_clickedCorrects == _totalCorrects){
+            //if the number of clicked correct elements = total number of correct elements
+            Completed = true;
         }
     }
 
@@ -126,6 +166,7 @@ public class GridManager : MonoBehaviour
         _currentRow.Clear();
         _currentRowCorrects.Clear();
         _currentRowNumber = 0;
+        _clickedCorrects = 0;
 
         //getting the current row and its correct elements
         _currentRow = spawner.FindElementsInRow(_currentRowNumber);
