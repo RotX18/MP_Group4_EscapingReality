@@ -55,6 +55,7 @@ public class GridInput : MonoBehaviour {
                     if(_hitObj.GetComponent<GridElement>().Correct) {
                         //if element is correct, set the colour to green
                         _hitObj.GetComponent<Renderer>().material.color = Color.green;
+                        gridManager.ClickedCorrects++;
                     }
                     else {
                         //if element is not correct, reset all current colours
