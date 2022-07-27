@@ -114,7 +114,7 @@ public class LockInput: MonoBehaviour {
 
         //CODE FOR UI CHANGE AND OTHER EFFECTS BELOW HERE
         //setting the colour to red after the new dial has been selected
-        _currentDial.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+        _currentDial.GetComponentInChildren<MeshRenderer>().material.color = Color.green;
     }
 
     private int Normalise(float f){ 

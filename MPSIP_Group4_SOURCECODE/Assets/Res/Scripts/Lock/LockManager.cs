@@ -58,8 +58,13 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
     public void OnComplete(){
         //ANY ANIMATIONS OR UNLOCK EVENTS TO BE DONE HERE
         Debug.Log("LOCK HAS BEEN UNLOCKED");
-        _text.text = "Congrats now, get the key and leave";
-        TriggerAnimation(_OpenParam);
+        if (_text != null) {
+            _text.text = "Congrats now, get the key and leave";
+        }
+        
+        if (_cabinetAnim != null) {
+            TriggerAnimation(_OpenParam);
+        }
     }
     #endregion
     #endregion
