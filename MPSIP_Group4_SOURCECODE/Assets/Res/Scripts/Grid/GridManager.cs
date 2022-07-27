@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 /// <summary>
 /// Class that manages any given GridSpawner
@@ -22,6 +23,8 @@ public class GridManager : MonoBehaviour, IPuzzle
     private int _clickedCorrects = 0;
     private bool _getCorrects = true;
     private bool _doCorrectCheck = true;
+    [SerializeField]
+    private TextMeshPro _text;
     #endregion
 
     #region PROPERTIES
@@ -46,6 +49,7 @@ public class GridManager : MonoBehaviour, IPuzzle
     public void OnComplete(){
         //ADD COMPLETED EFFECTS HERE
         Debug.Log("GRID HAS BEEN COMPLETED");
+        _text.text = "Unlock the cabinet,\n Temasek Polytechnic was founded in June 1974.";
     }
     #endregion
 

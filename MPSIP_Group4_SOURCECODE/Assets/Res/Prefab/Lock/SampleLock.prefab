@@ -425,9 +425,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5288501731460643581}
   - component: {fileID: 1588910996036161858}
+  - component: {fileID: 2007054543160267951}
   m_Layer: 0
   m_Name: SampleLock
-  m_TagString: Untagged
+  m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -466,8 +467,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2790b7aa46d561f48846cf03611d3717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctCombination: 0
-  lockDials: []
+  correctCombination: 1974
+  lockDials:
+  - {fileID: 900858812553385421}
+  - {fileID: 7808338772743210598}
+  - {fileID: 6681451416173201102}
+  - {fileID: 5695907750434403738}
+  _cabinetAnim: {fileID: 0}
+  _text: {fileID: 0}
+--- !u!65 &2007054543160267951
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4769128260293337159}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.20723306, y: 0.45470646, z: 0.45855284}
+  m_Center: {x: 0.0015205666, y: 0.1239007, z: -0.013106823}
 --- !u!1 &5983500091510113386
 GameObject:
   m_ObjectHideFlags: 0
