@@ -47,22 +47,24 @@ public class GridInput : MonoBehaviour {
             //when the right trigger is pressed
             if(_hitObj != null) {
                 //if the raycast hit is not null
-                if(_hitObj.GetComponent<GridElement>().Clickable) {
-                    //if the element is clickable
-                    _hitObj.GetComponent<GridElement>().Clicked = true;
+                if(_hitObj.GetComponent<GridElement>() != null){
+                    //if the hit object has a GridElement component
+                    if(_hitObj.GetComponent<GridElement>().Clickable) {
+                        //if the element is clickable
+                        _hitObj.GetComponent<GridElement>().Clicked = true;
 
-                    //checking whether the element is correct
-                    if(_hitObj.GetComponent<GridElement>().Correct) {
-                        //if element is correct, set the colour to green
-                        _hitObj.GetComponent<Renderer>().material.color = Color.green;
-                        gridManager.ClickedCorrects++;
-                    }
-                    else {
-                        //if element is not correct, reset all current colours
-                        gridManager.ResetGrid();
+                        //checking whether the element is correct
+                        if(_hitObj.GetComponent<GridElement>().Correct) {
+                            //if element is correct, set the colour to green
+                            _hitObj.GetComponent<Renderer>().material.color = Color.green;
+                            gridManager.ClickedCorrects++;
+                        }
+                        else {
+                            //if element is not correct, reset all current colours
+                            gridManager.ResetGrid();
+                        }
                     }
                 }
-
             }
         }
     }

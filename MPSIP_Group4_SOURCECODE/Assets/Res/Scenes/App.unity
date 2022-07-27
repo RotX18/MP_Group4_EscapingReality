@@ -21129,6 +21129,10 @@ PrefabInstance:
       propertyPath: _cabinetAnim
       value: 
       objectReference: {fileID: 628861171}
+    - target: {fileID: 1588910996036161858, guid: 8bdda9114923d5d40a6ef87478ab2623, type: 3}
+      propertyPath: correctCombination
+      value: 490
+      objectReference: {fileID: 0}
     - target: {fileID: 4769128260293337159, guid: 8bdda9114923d5d40a6ef87478ab2623, type: 3}
       propertyPath: m_Name
       value: SampleLock

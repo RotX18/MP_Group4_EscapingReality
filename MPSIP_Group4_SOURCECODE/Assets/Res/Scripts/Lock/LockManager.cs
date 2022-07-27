@@ -84,17 +84,40 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
 
     private IEnumerator CheckCombination(){
         string dialCombination = "";
-        //for loop to concatenate numbers and check against combi
+        string correctCom = correctCombination.ToString();
+        string addedZeros = "";
+
+        //for loop to concatenate numbers of the current lock dials
         for(int i = 0; i < lockDials.Length; i++){
             dialCombination += lockDials[i].CurrentNumber;
         }
+        
+        //accounting for correctCombinations starting with 0
+        if(correctCom.Length < lockDials.Length){
+            //if the correct combination has fewer digits than the number of lockDials
+            for(int i = 0; i < (lockDials.Length - correctCom.Length); i++){
+                addedZeros += "0";
+            }
+            //adding 0s to the front
+            correctCom = $"{addedZeros}{correctCom}";
+        }
 
-        if(dialCombination.Equals(correctCombination.ToString()) && _unlocked == false) {
+        //accounting for correctCombinations > number of lockDials
+        if(correctCom.Length > lockDials.Length){
+            //if the correct combination has more digits than the number of lock dials
+            correctCom = "";
+            for(int i = 0; i < lockDials.Length; i++){
+                //resetting correctCom to use only until the lockDials.Length-th digit
+                correctCom += correctCombination.ToString()[i];
+            }
+        }
+
+        //checking for a match between current combination and correct combination
+        if(dialCombination.Equals(correctCom) && _unlocked == false) {
             //if the combination matches and the lock has not been unlocked
             _unlocked = true;
             Completed = true;
         }
-
         yield return new WaitForEndOfFrame();
         _doCombinationCheck = true;
     }
