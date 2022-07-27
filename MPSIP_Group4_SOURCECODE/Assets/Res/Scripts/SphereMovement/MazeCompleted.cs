@@ -2,18 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-public class MazeCompleted : MonoBehaviour
+public class MazeCompleted : MonoBehaviour, IPuzzle
 {
-    public GameObject ballObj;
-    public TextMesh text;
+    #region PRIVATE VARS
+    [SerializeField]
+    private GameObject _ballObj;
+    [SerializeField]
+    private TextMeshPro _text;
+    #endregion
+
+    #region PROPERTIES
+    public bool Completed
+    {
+        get;
+        set;
+    }
+    #endregion
+
+    #region IPuzzle METHODS
+    public void OnComplete()
+    {
+        //ANY ANIMATIONS OR UNLOCK EVENTS TO BE DONE HERE
+        Debug.Log("LOCK HAS BEEN UNLOCKED");
+        _text.text = "Plot a course by the hours,\n Count the steps every minute.";
+
+    }
+    #endregion
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == ballObj)
+        if (other.gameObject == _ballObj)
         {
-            Debug.Log("puzzle completed");
-            text.text = "Plot a course by the hours,\n Count the steps every minute.";
+            OnComplete();
+            Completed = true;
         }
     }
 }
