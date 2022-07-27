@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LockManager : MonoBehaviour, IPickable, IPuzzle
 {
@@ -14,6 +15,12 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
     private bool _unlocked = false;
     private Vector3 _initialPos;
     private Quaternion _initialRot;
+    private int _OpenParam = Animator.StringToHash("Open");
+
+    [SerializeField]
+    private Animator _cabinetAnim;
+    [SerializeField]
+    private TextMeshPro _text;
     #endregion
 
     #region PROPERTIES
@@ -51,6 +58,13 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
     public void OnComplete(){
         //ANY ANIMATIONS OR UNLOCK EVENTS TO BE DONE HERE
         Debug.Log("LOCK HAS BEEN UNLOCKED");
+        if (_text != null) {
+            _text.text = "Congrats now, get the key and leave";
+        }
+        
+        if (_cabinetAnim != null) {
+            TriggerAnimation(_OpenParam);
+        }
     }
     #endregion
     #endregion
@@ -83,5 +97,10 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
 
         yield return new WaitForEndOfFrame();
         _doCombinationCheck = true;
+    }
+
+    public void TriggerAnimation(int param)
+    {
+        _cabinetAnim.SetTrigger(param);
     }
 }
