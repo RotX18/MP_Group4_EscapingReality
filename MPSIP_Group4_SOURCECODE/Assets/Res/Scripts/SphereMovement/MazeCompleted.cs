@@ -25,7 +25,7 @@ public class MazeCompleted : MonoBehaviour, IPuzzle
     public void OnComplete()
     {
         //ANY ANIMATIONS OR UNLOCK EVENTS TO BE DONE HERE
-        Debug.Log("LOCK HAS BEEN UNLOCKED");
+        Debug.Log("MAZE COMPLETE");
         _text.text = "Plot a course by the hours,\n Count the steps every minute.";
 
     }

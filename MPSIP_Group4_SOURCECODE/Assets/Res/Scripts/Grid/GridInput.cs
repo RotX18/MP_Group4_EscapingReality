@@ -51,13 +51,17 @@ public class GridInput : MonoBehaviour {
                     //if the hit object has a GridElement component
                     if(_hitObj.GetComponent<GridElement>().Clickable) {
                         //if the element is clickable
-                        _hitObj.GetComponent<GridElement>().Clicked = true;
 
                         //checking whether the element is correct
                         if(_hitObj.GetComponent<GridElement>().Correct) {
                             //if element is correct, set the colour to green
                             _hitObj.GetComponent<Renderer>().material.color = Color.green;
-                            gridManager.ClickedCorrects++;
+
+                            if(!_hitObj.GetComponent<GridElement>().Clicked){
+                                //if the current object has not yet been clicked prior
+                                gridManager.ClickedCorrects++;
+                                _hitObj.GetComponent<GridElement>().Clicked = true;
+                            }
                         }
                         else {
                             //if element is not correct, reset all current colours

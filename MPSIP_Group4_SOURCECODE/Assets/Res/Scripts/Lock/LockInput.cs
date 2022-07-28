@@ -35,7 +35,7 @@ public class LockInput: MonoBehaviour {
                     _turnDial = false;
 
                     //Up and Down = changing numbers
-                    if(_lThumbStickInput.y < -0.005f || _lThumbStickInput.y > 0.005f) {
+                    if(_lThumbStickInput.y < -0.03f || _lThumbStickInput.y > 0.03f) {
                         //if the input is more than 0.5f way in either y direction, rotate the dial
                         _currentDial.CurrentNumber = Normalise(_lThumbStickInput.y);
                     }
@@ -45,7 +45,7 @@ public class LockInput: MonoBehaviour {
                 else if(_changeDial){
                     _changeDial = false;
                     //Left and Right = changing selected dial
-                    if(_lThumbStickInput.x < -0.005 || _lThumbStickInput.x > 0.005) {
+                    if(_lThumbStickInput.x < -0.03f || _lThumbStickInput.x > 0.03f) {
                         //if the input is more than 0.5f in either x direction, change dials
                         UpdateCurrentDial(Normalise(_lThumbStickInput.x));
                     }
@@ -65,7 +65,7 @@ public class LockInput: MonoBehaviour {
                     _turnDial = false;
 
                     //Up and Down = changing numbers
-                    if(_rThumbStickInput.y < -0.01f || _rThumbStickInput.y > 0.01f) {
+                    if(_rThumbStickInput.y < -0.03f || _rThumbStickInput.y > 0.03f) {
                         //if the input is more than 0.5f way in either y direction, rotate the dial
                         _currentDial.CurrentNumber = Normalise(_rThumbStickInput.y);
                     }
@@ -75,7 +75,7 @@ public class LockInput: MonoBehaviour {
                 else if(_changeDial) {
                     _changeDial = false;
                     //Left and Right = changing selected dial
-                    if(_rThumbStickInput.x < -0.04 || _rThumbStickInput.x > 0.04) {
+                    if(_rThumbStickInput.x < -0.03f || _rThumbStickInput.x > 0.03f) {
                         //if the input is more than 0.5f in either x direction, change dials
                         UpdateCurrentDial(Normalise(_rThumbStickInput.x));
                     }
