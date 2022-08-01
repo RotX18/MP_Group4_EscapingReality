@@ -36,7 +36,7 @@ public class LockDial : MonoBehaviour
         _currentNumber -= input;
 
         //set the rotation to input*36 as 360/10 = 36, input determines the direction
-        Vector3 rotation = new Vector3(0, 0, -input * 36);
+        Vector3 rotation = new Vector3(0, 0, input * 36);
         gameObject.transform.Rotate(rotation);
     }
 }
