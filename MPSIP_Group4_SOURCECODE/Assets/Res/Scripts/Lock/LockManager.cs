@@ -8,6 +8,9 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
     #region PUBLIC VARS
     public int correctCombination;
     public LockDial[] lockDials;
+    public TextMeshPro text;
+    public Animator cabinetAnim;
+    public Animator lockAnim;
     #endregion
 
     #region PRIVATE VARS
@@ -15,12 +18,8 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
     private bool _unlocked = false;
     private Vector3 _initialPos;
     private Quaternion _initialRot;
-    private int _OpenParam = Animator.StringToHash("Open");
-
-    [SerializeField]
-    private Animator _cabinetAnim;
-    [SerializeField]
-    private TextMeshPro _text;
+    private int _openParam = Animator.StringToHash("Open");
+    private int _unlockAnim = Animator.StringToHash("Unlock");
     #endregion
 
     #region PROPERTIES
@@ -50,20 +49,24 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
         foreach(LockDial ele in lockDials){
             ele.GetComponentInChildren<MeshRenderer>().material.color = Color.white;
         }
-        gameObject.transform.SetPositionAndRotation(_initialPos, _initialRot);
+        if(Completed) {
+            TriggerLockAnimation(_unlockAnim);
+        }
+        else{
+            gameObject.transform.SetPositionAndRotation(_initialPos, _initialRot);
+        }
     }
     #endregion
 
     #region IPuzzle METHODS
     public void OnComplete(){
-        //ANY ANIMATIONS OR UNLOCK EVENTS TO BE DONE HERE
         Debug.Log("LOCK HAS BEEN UNLOCKED");
-        if (_text != null) {
-            _text.text = "Congrats now, get the key and leave";
+        if (text != null) {
+            text.text = "Congrats now, get the key and leave";
         }
-        
-        if (_cabinetAnim != null) {
-            TriggerAnimation(_OpenParam);
+
+        if(cabinetAnim != null) {
+            TriggerCabinetAnimation(_openParam);
         }
     }
     #endregion
@@ -75,6 +78,7 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
     }
 
     private void Update() {
+        
         if(_doCombinationCheck && !_unlocked){
             _doCombinationCheck = false;
             //checking for the correct correctCombination via coroutine
@@ -100,8 +104,8 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
             }
             //adding 0s to the front
             correctCom = $"{addedZeros}{correctCom}";
+            
         }
-
         //accounting for correctCombinations > number of lockDials
         if(correctCom.Length > lockDials.Length){
             //if the correct combination has more digits than the number of lock dials
@@ -122,8 +126,12 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
         _doCombinationCheck = true;
     }
 
-    public void TriggerAnimation(int param)
+    public void TriggerLockAnimation(int id){
+        lockAnim.SetTrigger(id);
+    }
+
+    public void TriggerCabinetAnimation(int param)
     {
-        _cabinetAnim.SetTrigger(param);
+        cabinetAnim.SetTrigger(param);
     }
 }

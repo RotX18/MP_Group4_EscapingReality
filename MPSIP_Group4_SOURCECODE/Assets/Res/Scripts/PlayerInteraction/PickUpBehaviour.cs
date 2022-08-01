@@ -9,6 +9,7 @@ public class PickUpBehaviour : MonoBehaviour
     public GameObject leftAnchor;
     public GameObject rightCon;
     public GameObject rightAnchor;
+    public float grabDistance = 0.02f;
     #endregion
 
     #region PRIVATE VARS
@@ -33,7 +34,6 @@ public class PickUpBehaviour : MonoBehaviour
             if(_leftHandObj != null) {
                 //if there is an object below the left hand, set the obj's position to just below the hand
                 _leftHandObj.transform.SetParent(leftAnchor.transform);
-                _leftHandObj.transform.position = leftAnchor.transform.position;
 
                 //setting the vars if the object implements IPickable
                 if(_leftHandObj.GetComponent<IPickable>() != null){
@@ -66,7 +66,6 @@ public class PickUpBehaviour : MonoBehaviour
             if(_rightHandObj != null){
                 //if there is an object below the right hand, set the obj's position to just below the hand
                 _rightHandObj.transform.SetParent(rightAnchor.transform);
-                _rightHandObj.transform.position = rightAnchor.transform.position;
 
                 //setting the vars for the object if it implements IPickable
                 if(_rightHandObj.GetComponent<IPickable>() != null) {
@@ -100,7 +99,7 @@ public class PickUpBehaviour : MonoBehaviour
         if(_doLeftRaycast){
             _leftHandRay = new Ray(leftCon.transform.position, leftCon.transform.right);
 
-            if(Physics.Raycast(_leftHandRay, out _leftHandHit, 0.2f)){
+            if(Physics.Raycast(_leftHandRay, out _leftHandHit, grabDistance)){
                 //if the ray hits something
                 if(_leftHandHit.collider.CompareTag("PickUp")){
                     //if the object has the tag of PickUp
@@ -113,7 +112,7 @@ public class PickUpBehaviour : MonoBehaviour
         if(_doRightRaycast){
             _rightHandRay = new Ray(rightCon.transform.position, -rightCon.transform.right);
 
-            if(Physics.Raycast(_rightHandRay, out _rightHandHit, 0.05f)){
+            if(Physics.Raycast(_rightHandRay, out _rightHandHit, grabDistance)){
                 //if the ray hits something
                 if(_rightHandHit.collider.CompareTag("PickUp")){
                     //if the object has the tag of PickUp
