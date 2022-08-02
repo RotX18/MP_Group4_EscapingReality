@@ -54,7 +54,7 @@ public class GridSpawner : MonoBehaviour
             for(int j = 0; j < lenX; j++){
                 //for each row in each column
                 //instantiating each gridElement with space inbetween
-                _instantiatedObj = Instantiate(gridElement, new Vector3(transform.position.x + j + (j * spaceX), transform.position.y + i + (i * spaceY), transform.position.z), Quaternion.identity);
+                _instantiatedObj = Instantiate(gridElement, new Vector3(transform.position.x + j + (j * (spaceX -(1-gridElement.transform.localScale.x))), transform.position.y + i + (i * (spaceY - (1 - gridElement.transform.localScale.y))), transform.position.z), Quaternion.identity);
 
                 //setting the X and Y position for the instantiated ibject
                 _instantiatedObj.GetComponent<GridElement>().GridX = j;
