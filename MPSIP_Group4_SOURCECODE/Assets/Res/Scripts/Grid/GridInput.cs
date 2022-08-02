@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,7 @@ public class GridInput : MonoBehaviour {
     public GameObject pointerOrigin;
 
     //grid vars
-    public GameObject gridSpawnerObj;
+    public GridSpawner gridSpawner;
     public GridManager gridManager;
     #endregion
 
@@ -23,13 +24,14 @@ public class GridInput : MonoBehaviour {
     private GameObject _hitObj;
 
     //grid vars
+    private int _intendedCorrectIndex = 0;
     private List<GridElement> _elements = new();
     private Dictionary<int, GridElement> _correctEles = new();
     private Dictionary<int, GridElement> _wrongEles = new();
     #endregion
 
     private void Start() {
-        _elements = gridSpawnerObj.GetComponent<GridSpawner>().AllElements;
+        _elements = gridSpawner.GetComponent<GridSpawner>().AllElements;
 
         //sorting the elements in the grid to correct elements and wrong elements
         foreach(GridElement ele in _elements) {
@@ -57,10 +59,24 @@ public class GridInput : MonoBehaviour {
                             //if element is correct, set the colour to green
                             _hitObj.GetComponent<Renderer>().material.color = Color.green;
 
+                            //get current correct's index in gridManager
+                            int currentCorrectIndex = Array.IndexOf(gridManager.correctElementIDs, gridSpawner.FindElementByID(_hitObj.GetComponent<GridElement>().ID).GetComponent<GridElement>().ID);
+                            
                             if(!_hitObj.GetComponent<GridElement>().Clicked){
                                 //if the current object has not yet been clicked prior
                                 gridManager.ClickedCorrects++;
                                 _hitObj.GetComponent<GridElement>().Clicked = true;
+
+                                //comparing the current correct's index to the next correct in sequence
+                                if(currentCorrectIndex == _intendedCorrectIndex){
+                                    //if the currentCorrectIndex is the same as the _intendedCorrectIndex, increment _intendedCorrectIndex
+                                    _intendedCorrectIndex++;
+                                }
+                                else{
+                                    //if the currentCorrectIndex is not the next one in sequence, reset
+                                    gridManager.ResetGrid();
+                                    _intendedCorrectIndex = 0;
+                                }
                             }
                         }
                         else {

@@ -23,9 +23,7 @@ public class GridSpawner : MonoBehaviour
 
     //spacing between each element along the X and Y axis
     [Header("X-axis spacing of spaceX, Y-axis spacing of spaceY")]
-    [Min(0)]
     public float spaceX;
-    [Min(0)]
     public float spaceY;
 
     //degrees to rotate the entire grid by
