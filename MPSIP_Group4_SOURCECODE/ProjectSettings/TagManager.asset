@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - PickUp
+  - ActivateClock
   layers:
   - Default
   - TransparentFX

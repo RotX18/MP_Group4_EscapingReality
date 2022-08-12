@@ -27,7 +27,7 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
     public IPickable.Controller CurrentController {
         get;
         set;
-    } = IPickable.Controller.None;
+    }
 
     public bool Grabbed {
         get;
@@ -45,7 +45,7 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
 
     #region INTERFACE METHODS
     #region IPickable METHODS
-    public void OnRelease(){ 
+    public void OnRelease(){
         foreach(LockDial ele in lockDials){
             ele.GetComponentInChildren<MeshRenderer>().material.color = Color.white;
         }
