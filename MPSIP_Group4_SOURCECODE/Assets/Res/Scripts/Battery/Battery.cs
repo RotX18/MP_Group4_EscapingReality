@@ -7,6 +7,7 @@ public class Battery : MonoBehaviour, IPickable
     #region PUBLIC VARS
     public GameObject rCon;
     public GameObject lCon;
+    public GameObject spawnerLocation;
     public float throwForce = 1;
     #endregion
 
@@ -14,11 +15,9 @@ public class Battery : MonoBehaviour, IPickable
     private Rigidbody _rb;
     private Vector3 _lConLastPos;
     private Vector3 _rConLastPos;
-    private Vector3 _spawnLocation;
-    private Quaternion _spawnRot;
     private float _lConSpeed;
     private float _rConSpeed;
-    private bool _pickedUp = false;
+    public bool _pickedUp = false;
     #endregion
 
     #region PROPERTIES
@@ -42,9 +41,7 @@ public class Battery : MonoBehaviour, IPickable
 
     private void Awake() {
         _rb = GetComponent<Rigidbody>();
-        _rb.isKinematic = false;
-        _spawnLocation = transform.position;
-        _spawnRot = transform.rotation;
+        _rb.isKinematic = true;
     }
 
     private void Start() {
@@ -84,7 +81,9 @@ public class Battery : MonoBehaviour, IPickable
         if(!collision.collider.CompareTag("ActivateClock") && _pickedUp){
             //if the collided object is not tagged "ActivateClock" and has already been pickup
             _rb.isKinematic = true;
-            transform.SetPositionAndRotation(_spawnLocation, _spawnRot);
+            if(spawnerLocation != null){
+                transform.SetPositionAndRotation(spawnerLocation.transform.position, spawnerLocation.transform.rotation);
+            }
             _pickedUp = false;
         }
     }

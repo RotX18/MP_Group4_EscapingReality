@@ -11,6 +11,12 @@ public class MazeCompleted : MonoBehaviour, IPuzzle
     private GameObject _ballObj;
     [SerializeField]
     private TextMeshPro _text;
+
+    //BATTERY VARS
+    [SerializeField]
+    private GameObject _battery;
+    [SerializeField]
+    private GameObject _battSpawner;
     #endregion
 
     #region PROPERTIES
@@ -28,6 +34,8 @@ public class MazeCompleted : MonoBehaviour, IPuzzle
         Debug.Log("MAZE COMPLETE");
         _text.text = "Plot a course by the hours,\n Count the steps every minute.";
 
+        //spawn the battery
+        _battery.transform.SetPositionAndRotation(_battSpawner.transform.position, _battSpawner.transform.rotation);
     }
     #endregion
 
@@ -35,7 +43,6 @@ public class MazeCompleted : MonoBehaviour, IPuzzle
     {
         if (other.gameObject == _ballObj)
         {
-            OnComplete();
             Completed = true;
         }
     }
