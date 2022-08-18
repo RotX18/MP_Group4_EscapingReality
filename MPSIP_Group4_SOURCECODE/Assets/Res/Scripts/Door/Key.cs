@@ -39,10 +39,14 @@ public class Key : MonoBehaviour, IPickable
 
     #region INTERFACE METHODS
     public void OnRelease(){ 
-        if(_unlock && !Grabbed){
-            gameObject.transform.SetParent(door.transform);
-            anim.SetTrigger(_doorUnlock);
+        if(_unlock){
+            Destroy(gameObject);
         }
+    }
+
+    private void OnDestroy() {
+        Debug.Log("PLAYING DOOR ANIM");
+        anim.SetTrigger(_doorUnlock);
     }
     #endregion
 }
