@@ -40,13 +40,15 @@ public class Key : MonoBehaviour, IPickable
     #region INTERFACE METHODS
     public void OnRelease(){ 
         if(_unlock){
+            //if the door has changed _unlock to true
             Destroy(gameObject);
         }
     }
+    #endregion
+
 
     private void OnDestroy() {
-        Debug.Log("PLAYING DOOR ANIM");
+        //playing the animation as the key gets de
         anim.SetTrigger(_doorUnlock);
     }
-    #endregion
 }
