@@ -15,6 +15,7 @@ public class LockAnimationEvents : MonoBehaviour
 
     public void Unlock(){
         lockRb.useGravity = true;
+        lockRb.isKinematic = false;
         TriggerCabinetAnimation(_openParam);
     }
 

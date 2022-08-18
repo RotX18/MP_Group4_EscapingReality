@@ -30,9 +30,7 @@ public class MazeCompleted : MonoBehaviour, IPuzzle
     #region IPuzzle METHODS
     public void OnComplete()
     {
-        //ANY ANIMATIONS OR UNLOCK EVENTS TO BE DONE HERE
-        Debug.Log("MAZE COMPLETE");
-        _text.text = "Plot a course by the hours,\n Count the steps every minute.";
+        _text.text = "The power of time shall guide you.";
 
         //spawn the battery
         _battery.transform.SetPositionAndRotation(_battSpawner.transform.position, _battSpawner.transform.rotation);

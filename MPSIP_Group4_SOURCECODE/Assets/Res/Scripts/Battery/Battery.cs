@@ -17,7 +17,7 @@ public class Battery : MonoBehaviour, IPickable
     private Vector3 _rConLastPos;
     private float _lConSpeed;
     private float _rConSpeed;
-    public bool _pickedUp = false;
+    private bool _pickedUp = false;
     #endregion
 
     #region PROPERTIES
