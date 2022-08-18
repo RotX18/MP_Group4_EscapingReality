@@ -9,7 +9,6 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
     public GameObject key;
     public LockDial[] lockDials;
     public TextMeshPro text;
-    public Animator cabinetAnim;
     public Animator lockAnim;
     public int correctCombination;
     #endregion
@@ -19,7 +18,6 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
     private bool _unlocked = false;
     private Vector3 _initialPos;
     private Quaternion _initialRot;
-    private int _openParam = Animator.StringToHash("Open");
     private int _unlockAnim = Animator.StringToHash("Unlock");
     #endregion
 
@@ -58,12 +56,8 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
 
     #region IPuzzle METHODS
     public void OnComplete(){
-        Debug.Log("LOCK HAS BEEN UNLOCKED");
         if (text != null) {
             text.text = "Congrats now, get the key and leave";
-        }
-        if(cabinetAnim != null) {
-            TriggerCabinetAnimation(_openParam);
         }
         TriggerLockAnimation(_unlockAnim);
         key.SetActive(true);
@@ -127,10 +121,5 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
 
     public void TriggerLockAnimation(int id){
         lockAnim.SetTrigger(id);
-    }
-
-    public void TriggerCabinetAnimation(int param)
-    {
-        cabinetAnim.SetTrigger(param);
     }
 }

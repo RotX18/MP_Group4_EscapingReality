@@ -27,7 +27,8 @@ public class LockInput: MonoBehaviour {
             _rThumbStickInput = OVRInput.Get(OVRInput.RawAxis2D.RThumbstick);
 
             //LEFT CONTROLLER GRAB
-            if(_lockManager.GetComponent<IPickable>().CurrentController == IPickable.Controller.LTouch) {
+            if(_lockManager.GetComponent<IPickable>().CurrentController == IPickable.Controller.LTouch && !PlayerMovement.IsMoving) {
+                //if the left hand is grabbing the lock and the player is not moving (left index trigger is not held down)
                 UpdateCurrentDial(0);
                 //Lock interaction
                 //turning current dial
@@ -91,7 +92,6 @@ public class LockInput: MonoBehaviour {
 
     private void UpdateCurrentDial(int input){
         //incrementing the current dial index
-
         _currentDialIndex += input;
         //setting the old dial to white before the change
         _currentDial.GetComponentInChildren<MeshRenderer>().material.color = Color.white;
