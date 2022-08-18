@@ -6,11 +6,12 @@ using TMPro;
 public class LockManager : MonoBehaviour, IPickable, IPuzzle
 {
     #region PUBLIC VARS
-    public int correctCombination;
+    public GameObject key;
     public LockDial[] lockDials;
     public TextMeshPro text;
     public Animator cabinetAnim;
     public Animator lockAnim;
+    public int correctCombination;
     #endregion
 
     #region PRIVATE VARS
@@ -49,10 +50,7 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
         foreach(LockDial ele in lockDials){
             ele.GetComponentInChildren<MeshRenderer>().material.color = Color.white;
         }
-        if(Completed) {
-            TriggerLockAnimation(_unlockAnim);
-        }
-        else{
+        if(!Completed){
             gameObject.transform.SetPositionAndRotation(_initialPos, _initialRot);
         }
     }
@@ -64,10 +62,11 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
         if (text != null) {
             text.text = "Congrats now, get the key and leave";
         }
-
         if(cabinetAnim != null) {
             TriggerCabinetAnimation(_openParam);
         }
+        TriggerLockAnimation(_unlockAnim);
+        key.SetActive(true);
     }
     #endregion
     #endregion
