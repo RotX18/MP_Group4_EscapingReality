@@ -5,7 +5,7 @@ using UnityEngine;
 public class DoorLock : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other) {
-        if(other.name.Equals("Key")){
+        if(other.name.Equals("PlayerKey")){
             other.GetComponent<Key>().Unlock = true;
         }
     }
