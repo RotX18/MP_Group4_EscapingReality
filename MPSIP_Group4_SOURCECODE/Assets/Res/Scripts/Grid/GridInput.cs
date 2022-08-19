@@ -45,7 +45,7 @@ public class GridInput : MonoBehaviour {
     }
 
     private void Update() {
-        if(OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger)) {
+        if(OVRInput.GetDown(OVRInput.RawButton.RHandTrigger)) {
             //when the right trigger is pressed
             if(_hitObj != null) {
                 //if the raycast hit is not null
