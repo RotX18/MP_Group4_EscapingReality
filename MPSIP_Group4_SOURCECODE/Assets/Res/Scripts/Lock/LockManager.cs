@@ -10,6 +10,7 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
     public LockDial[] lockDials;
     public Animator lockAnim;
     public int correctCombination;
+    public TextMeshProUGUI text;
     #endregion
 
     #region PRIVATE VARS
@@ -57,6 +58,7 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
     public void OnComplete(){
         TriggerLockAnimation(_unlockAnim);
         key.SetActive(true);
+        text.text = "Objective: Escape the room";
     }
     #endregion
     #endregion
