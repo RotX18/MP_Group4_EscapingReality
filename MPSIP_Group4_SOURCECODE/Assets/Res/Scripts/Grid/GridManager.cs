@@ -24,7 +24,7 @@ public class GridManager : MonoBehaviour, IPuzzle
     private bool _getCorrects = true;
     private bool _doCorrectCheck = true;
     [SerializeField]
-    private TextMeshPro _text;
+    private TextMeshProUGUI _text;
     #endregion
 
     #region PROPERTIES
@@ -49,7 +49,7 @@ public class GridManager : MonoBehaviour, IPuzzle
     public void OnComplete(){
         //ADD COMPLETED EFFECTS HERE
         Debug.Log("GRID HAS BEEN COMPLETED");
-        _text.text = "Unlock the cabinet,\n Temasek Polytechnic was founded in June 1974.";
+        _text.text = "Temasek Polytechnic was founded in June 1974.";
     }
     #endregion
 
@@ -162,6 +162,7 @@ public class GridManager : MonoBehaviour, IPuzzle
         //resetting the grid elements
         foreach(GridElement ele in _elements) {
             ele.GetComponent<Renderer>().material.color = Color.white;
+            ele.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.white);
             ele.Clickable = false;
             ele.Clicked = false;
         }

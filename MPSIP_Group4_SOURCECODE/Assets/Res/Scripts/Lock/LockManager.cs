@@ -8,7 +8,6 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
     #region PUBLIC VARS
     public GameObject key;
     public LockDial[] lockDials;
-    public TextMeshPro text;
     public Animator lockAnim;
     public int correctCombination;
     #endregion
@@ -56,9 +55,6 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
 
     #region IPuzzle METHODS
     public void OnComplete(){
-        if (text != null) {
-            text.text = "Congrats now, get the key and leave";
-        }
         TriggerLockAnimation(_unlockAnim);
         key.SetActive(true);
     }

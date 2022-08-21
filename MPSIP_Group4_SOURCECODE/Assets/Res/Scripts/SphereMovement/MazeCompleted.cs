@@ -9,8 +9,6 @@ public class MazeCompleted : MonoBehaviour, IPuzzle
     #region PRIVATE VARS
     [SerializeField]
     private GameObject _ballObj;
-    [SerializeField]
-    private TextMeshPro _text;
 
     //BATTERY VARS
     [SerializeField]
@@ -30,7 +28,6 @@ public class MazeCompleted : MonoBehaviour, IPuzzle
     #region IPuzzle METHODS
     public void OnComplete()
     {
-        _text.text = "The power of time shall guide you.";
 
         //spawn the battery
         _battery.transform.SetPositionAndRotation(_battSpawner.transform.position, _battSpawner.transform.rotation);

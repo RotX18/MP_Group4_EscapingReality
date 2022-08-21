@@ -58,6 +58,7 @@ public class GridInput : MonoBehaviour {
                         if(_hitObj.GetComponent<GridElement>().Correct) {
                             //if element is correct, set the colour to green
                             _hitObj.GetComponent<Renderer>().material.color = Color.green;
+                            _hitObj.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.green);
 
                             //get current correct's index in gridManager
                             int currentCorrectIndex = Array.IndexOf(gridManager.correctElementIDs, gridSpawner.FindElementByID(_hitObj.GetComponent<GridElement>().ID).GetComponent<GridElement>().ID);
