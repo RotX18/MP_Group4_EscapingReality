@@ -38,16 +38,25 @@ public class PlayerMovement : MonoBehaviour
             //getting the left thumb stick input
             _stickInput = OVRInput.Get(OVRInput.RawAxis2D.LThumbstick);
 
-            //setting the direction of movement
-            Vector3 normalisedCenterEye = centerEyeAnchor.transform.forward.normalized;
-            Vector3 move = new Vector3(normalisedCenterEye.x * Normalise(_stickInput.x) * speed, 0, normalisedCenterEye.z * Normalise(_stickInput.y) * speed);
-            _rb.AddForce(move, ForceMode.VelocityChange);
-            _rb.velocity = Vector3.ClampMagnitude(_rb.velocity, maxSpeed);
+            if(_stickInput != Vector2.zero){
+                //if there is input with the left thumbstick, move the rigidbody
+                _rb.isKinematic = false;
+                _rb.AddForce(centerEyeAnchor.transform.right * Normalise(_stickInput.x) * speed, ForceMode.VelocityChange);
+                _rb.AddForce(centerEyeAnchor.transform.forward * Normalise(_stickInput.y) * speed, ForceMode.VelocityChange);
+                _rb.velocity = Vector3.ClampMagnitude(_rb.velocity, maxSpeed);
+            }
+            else{
+                //if there is no input with the thumbstick
+                _rb.velocity = Vector3.zero;
+                _rb.angularVelocity = Vector3.zero;
+                _rb.isKinematic = true;
+            }
         }
         else{
-            _isMoving = false;
+            //if the left trigger is released
             _rb.velocity = Vector3.zero;
             _rb.angularVelocity = Vector3.zero;
+            _rb.isKinematic = true;
         }
     }
 
