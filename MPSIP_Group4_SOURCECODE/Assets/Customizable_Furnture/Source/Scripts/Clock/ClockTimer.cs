@@ -5,7 +5,7 @@ public class ClockTimer : MonoBehaviour {
 	public int initialHoursValue;
 	public int initialMinutesValue;
 	public int initialSecondsValue;
-	public float clockSpeed=1.0f;
+	public float clockSpeed=0.0f;
 	public bool pointFlicker=true;
 	public bool reverse=false;
 

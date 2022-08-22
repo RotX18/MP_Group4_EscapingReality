@@ -11,7 +11,7 @@ public class DigitalClock : MonoBehaviour {
 
 	void Start () {
 
-		StartCoroutine ("PlayTime");
+		//StartCoroutine ("PlayTime");
 		if (pointFlicker && secondsDCV==null)StartCoroutine ("PlayPointFlicker");
 	}
 	public void SetReverseClock(bool setReverse){
