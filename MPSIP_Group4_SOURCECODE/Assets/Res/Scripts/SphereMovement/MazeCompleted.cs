@@ -23,6 +23,11 @@ public class MazeCompleted : MonoBehaviour, IPuzzle
         get;
         set;
     }
+
+    public bool RunOnComplete {
+        get;
+        set;
+    } = true;
     #endregion
 
     #region IPuzzle METHODS
