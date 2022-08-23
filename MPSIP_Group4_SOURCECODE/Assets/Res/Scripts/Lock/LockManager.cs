@@ -39,6 +39,10 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
         get;
         set;
     } = false;
+    public bool RunOnComplete {
+        get;
+        set;
+    } = true;
     #endregion
     #endregion
 
