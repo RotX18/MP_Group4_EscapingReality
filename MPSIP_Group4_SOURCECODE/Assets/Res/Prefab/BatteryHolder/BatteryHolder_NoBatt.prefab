@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629325966796416826}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: -0, z: 0.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 6057006539789765323}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.461317, y: 0, z: -10.552819}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3230619, y: 0.3230619, z: 0.3230619}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2564676147827149681}
@@ -148,3 +148,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  batteryHolder: {fileID: 2695950698616507693, guid: 34c71082dc5bb00449b0dd65c264cf6d, type: 3}
+  text: {fileID: 0}
+  arrowPointer: {fileID: 0}
