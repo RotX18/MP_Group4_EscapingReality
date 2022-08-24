@@ -8,9 +8,7 @@ public class GameManager : MonoBehaviour
 
     #region PUBLIC VARS
     //PUZZLES
-    public GameObject mazeObj;
-    public GameObject gridObj;
-    public GameObject lockObj;
+    public GameObject[] puzzles;
 
     //UI
     public GameObject canvasUI;
@@ -18,9 +16,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region PRIVATE VARS
-    private bool _mazeComplete = false;
-    private bool _gridComplete = false;
-    private bool _lockComplete = false;
+    private bool _runCheckCompletes = true;
     #endregion
 
     private void Awake() {
@@ -34,23 +30,10 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update() {
-        if(mazeObj.GetComponentInChildren<IPuzzle>() != null) {
-            if(mazeObj.GetComponentInChildren<IPuzzle>().Completed && !_mazeComplete) {
-                _mazeComplete = true;
-                mazeObj.GetComponentInChildren<IPuzzle>().OnComplete();
-            }
-        }
-        if(gridObj.GetComponentInChildren<IPuzzle>() != null) {
-            if(gridObj.GetComponentInChildren<IPuzzle>().Completed && !_gridComplete) {
-                _gridComplete = true;
-                gridObj.GetComponentInChildren<IPuzzle>().OnComplete();
-            }
-        }
-        if(lockObj.GetComponentInChildren<IPuzzle>() != null && !_lockComplete) {
-            if(lockObj.GetComponentInChildren<IPuzzle>().Completed) {
-                _lockComplete = true;
-                lockObj.GetComponentInChildren<IPuzzle>().OnComplete();
-            }
+        //run CheckCompletes coroutine when the previous check completes
+        if(_runCheckCompletes) {
+            _runCheckCompletes = false;
+            StartCoroutine(CheckCompletes());
         }
         
         //hiding/unhiding the ui
@@ -75,5 +58,18 @@ public class GameManager : MonoBehaviour
             }
         }
 
+    }
+
+    private IEnumerator CheckCompletes(){ 
+        foreach(GameObject ele in puzzles){ 
+            //iterating through IPuzzles in puzzles
+            if(ele.GetComponent<IPuzzle>().Completed && ele.GetComponent<IPuzzle>().RunOnComplete){
+                //if the puzzle is completed and its corresponding RunOnComplete is true
+                ele.GetComponent<IPuzzle>().RunOnComplete = false;
+                ele.GetComponent<IPuzzle>().OnComplete();
+            }
+        }
+        yield return new WaitForEndOfFrame();
+        _runCheckCompletes = true;
     }
 }

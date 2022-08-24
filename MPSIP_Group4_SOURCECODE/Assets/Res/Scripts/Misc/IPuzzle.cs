@@ -9,5 +9,10 @@ public interface IPuzzle
         set;
     }
 
+    bool RunOnComplete{
+        get;
+        set;
+    }
+
     void OnComplete();
 }

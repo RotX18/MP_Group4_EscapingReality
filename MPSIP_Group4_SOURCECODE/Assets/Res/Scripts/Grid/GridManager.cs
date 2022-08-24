@@ -33,6 +33,11 @@ public class GridManager : MonoBehaviour, IPuzzle
         get;
         set;
     } = false;
+
+    public bool RunOnComplete {
+        get;
+        set;
+    } = true;
     #endregion
 
     public int ClickedCorrects{
@@ -47,7 +52,6 @@ public class GridManager : MonoBehaviour, IPuzzle
 
     #region INTERFACE METHODS
     public void OnComplete(){
-        //ADD COMPLETED EFFECTS HERE
         Debug.Log("GRID HAS BEEN COMPLETED");
         _text.text = "Temasek Polytechnic was founded in June 1974.";
     }
