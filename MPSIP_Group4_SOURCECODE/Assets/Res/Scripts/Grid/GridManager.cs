@@ -165,8 +165,8 @@ public class GridManager : MonoBehaviour, IPuzzle
     public void ResetGrid() {
         //resetting the grid elements
         foreach(GridElement ele in _elements) {
-            ele.GetComponent<Renderer>().material.color = Color.white;
-            ele.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.white);
+            ele.GetComponent<Renderer>().material.color = Color.red;
+            ele.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.red);
             ele.Clickable = false;
             ele.Clicked = false;
         }
