@@ -36,7 +36,7 @@ public class PickUpBehaviour : MonoBehaviour
                 _leftHandObj.transform.SetParent(leftAnchor.transform);
 
                 //setting the vars if the object implements IPickable
-                if(_leftHandObj.GetComponent<IPickable>() != null){
+                if(_leftHandObj.GetComponentInChildren<IPickable>() != null){
                     _leftHandObj.GetComponent<IPickable>().Grabbed = true;
                     _leftHandObj.GetComponent<IPickable>().CurrentController = IPickable.Controller.LTouch;
                 }
@@ -47,7 +47,7 @@ public class PickUpBehaviour : MonoBehaviour
             _doLeftRaycast = false;
             try {
                 _leftHandObj.transform.SetParent(null);
-                if (_leftHandObj.GetComponent<IPickable>() != null) {
+                if (_leftHandObj.GetComponentInChildren<IPickable>() != null) {
                     _leftHandObj.GetComponent<IPickable>().Grabbed = false;
                     _leftHandObj.GetComponent<IPickable>().OnRelease();
                     _leftHandObj.GetComponent<IPickable>().CurrentController = IPickable.Controller.None;
@@ -68,7 +68,7 @@ public class PickUpBehaviour : MonoBehaviour
                 _rightHandObj.transform.SetParent(rightAnchor.transform);
 
                 //setting the vars for the object if it implements IPickable
-                if(_rightHandObj.GetComponent<IPickable>() != null) {
+                if(_rightHandObj.GetComponentInChildren<IPickable>() != null) {
                     _rightHandObj.GetComponent<IPickable>().Grabbed = true;
                     _rightHandObj.GetComponent<IPickable>().CurrentController = IPickable.Controller.RTouch;
                 }
