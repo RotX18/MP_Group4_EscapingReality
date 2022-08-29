@@ -6,6 +6,8 @@ using TMPro;
 
 public class MazeCompleted : MonoBehaviour, IPuzzle
 {
+    public GameObject maze;
+
     #region PRIVATE VARS
     [SerializeField]
     private GameObject _ballObj;
@@ -35,6 +37,9 @@ public class MazeCompleted : MonoBehaviour, IPuzzle
     {
         //spawn the battery
         _battery.transform.SetPositionAndRotation(_battSpawner.transform.position, _battSpawner.transform.rotation);
+
+        //when the maze is completed, set the maze to inactive
+        maze.SetActive(false);
     }
     #endregion
 

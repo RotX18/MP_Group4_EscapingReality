@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PickUp
   - ActivateClock
+  - Wall
   layers:
   - Default
   - TransparentFX
