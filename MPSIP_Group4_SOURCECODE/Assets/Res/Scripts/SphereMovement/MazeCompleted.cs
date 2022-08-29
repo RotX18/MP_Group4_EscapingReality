@@ -35,6 +35,8 @@ public class MazeCompleted : MonoBehaviour, IPuzzle
     {
         //spawn the battery
         _battery.transform.SetPositionAndRotation(_battSpawner.transform.position, _battSpawner.transform.rotation);
+
+        gameObject.SetActive(false);
     }
     #endregion
 
