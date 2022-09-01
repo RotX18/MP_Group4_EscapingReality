@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else{
             //if the left trigger is released
+            _isMoving = false;
             _rb.velocity = Vector3.zero;
             _rb.angularVelocity = Vector3.zero;
             _rb.isKinematic = true;
