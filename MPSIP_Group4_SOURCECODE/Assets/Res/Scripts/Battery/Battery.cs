@@ -67,6 +67,7 @@ public class Battery : MonoBehaviour, IPickable
     }
 
     private void Throw(){
+        _rb.isKinematic = false;
         if(CurrentController == IPickable.Controller.LTouch){
             //if the left controller is holding
             _rb.AddForce(lCon.transform.right * _lConSpeed * throwForce, ForceMode.VelocityChange);
