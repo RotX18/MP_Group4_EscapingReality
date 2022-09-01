@@ -111,11 +111,8 @@ public class LockInput: MonoBehaviour {
             //if the current dial index falls within the array length, set the new current dial
             _currentDial = _lockDials[_currentDialIndex];
         }
-
-        //CODE FOR UI CHANGE AND OTHER EFFECTS BELOW HERE
         //setting the colour to red after the new dial has been selected
         _currentDial.GetComponentInChildren<MeshRenderer>().material.color = Color.green;
-        Debug.Log($"ZZZZZZZZZZZZZZZZZZZZZZZz cccc {_currentDialIndex} {_currentDial.GetComponentInChildren<MeshRenderer>().material.color.ToString()}");
     }
 
     private int Normalise(float f){ 

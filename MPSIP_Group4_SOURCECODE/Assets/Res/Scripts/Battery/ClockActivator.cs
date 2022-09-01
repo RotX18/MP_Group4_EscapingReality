@@ -41,7 +41,7 @@ public class ClockActivator : MonoBehaviour
             Instantiate(batteryHolder, _objPos, _objRot);
 
             //setting the player instruction text
-            text.text = "The hour show the directions, the minutes show the number of steps.";
+            text.text = "Plot a course ny the hours, Count the steps every minute.";
 
             //destroying this gameobject
             Destroy(gameObject);
