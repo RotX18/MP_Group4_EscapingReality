@@ -46,7 +46,9 @@ public class PickUpBehaviour : MonoBehaviour
             //When the left hand trigger is let go, reset the vars
             _doLeftRaycast = false;
             try {
-                _leftHandObj.transform.SetParent(null);
+                Debug.Log($"LLLLLLLLL {_leftHandObj.transform.parent.name}");
+                _leftHandObj.transform.DetachChildren();
+                Debug.Log($"LLLLLLL22222 {_leftHandObj.transform.parent.name}");
                 if (_leftHandObj.GetComponentInChildren<IPickable>() != null) {
                     _leftHandObj.GetComponent<IPickable>().Grabbed = false;
                     _leftHandObj.GetComponent<IPickable>().OnRelease();
@@ -78,7 +80,7 @@ public class PickUpBehaviour : MonoBehaviour
             //When the right hand trigger is let go, reset the vars
             _doRightRaycast = false;
             try {
-                _rightHandObj.transform.SetParent(null);
+                _rightHandObj.transform.DetachChildren();
                 //resetting the vars for the righthand obj if it implements IPickable
                 if (_rightHandObj.GetComponentInChildren<IPickable>() != null) {
                     _rightHandObj.GetComponent<IPickable>().Grabbed = false;
