@@ -8,8 +8,9 @@ public class ClockActivator : MonoBehaviour
     #region PUBLIC VARS
     public GameObject[] clocks;
     public GameObject batteryHolder;
-    public TextMeshProUGUI text;
+    public TextMeshProUGUI _text;
     public GameObject arrowPointer;
+    public GameObject _textObj;
     #endregion
 
     #region PRIVATE VARS
@@ -40,8 +41,11 @@ public class ClockActivator : MonoBehaviour
             //"inserting" the battery into the socket
             Instantiate(batteryHolder, _objPos, _objRot);
 
+            if (!_textObj.activeSelf) {
+                _textObj.SetActive(true);
+            }
             //setting the player instruction text
-            text.text = "Plot a course ny the hours, Count the steps every minute.";
+            _text.text = "Plot a course by the hours, Count the steps every minute.";
 
             //destroying this gameobject
             Destroy(gameObject);

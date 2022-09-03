@@ -17,6 +17,8 @@ public class MazeCompleted : MonoBehaviour, IPuzzle
     private GameObject _battery;
     [SerializeField]
     private GameObject _battSpawner;
+    [SerializeField]
+    private TextMeshProUGUI _text;
     #endregion
 
     #region PROPERTIES
@@ -40,6 +42,8 @@ public class MazeCompleted : MonoBehaviour, IPuzzle
 
         //when the maze is completed, set the maze to inactive
         maze.SetActive(false);
+
+        _text.text = "Charge the clocks";
     }
     #endregion
 

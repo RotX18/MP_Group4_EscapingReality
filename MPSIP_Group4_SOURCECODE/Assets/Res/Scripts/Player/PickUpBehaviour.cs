@@ -46,9 +46,7 @@ public class PickUpBehaviour : MonoBehaviour
             //When the left hand trigger is let go, reset the vars
             _doLeftRaycast = false;
             try {
-                Debug.Log($"LLLLLLLLL {_leftHandObj.transform.parent.name}");
-                _leftHandObj.transform.DetachChildren();
-                Debug.Log($"LLLLLLL22222 {_leftHandObj.transform.parent.name}");
+                _leftHandObj.transform.SetParent(null);
                 if (_leftHandObj.GetComponentInChildren<IPickable>() != null) {
                     _leftHandObj.GetComponent<IPickable>().Grabbed = false;
                     _leftHandObj.GetComponent<IPickable>().OnRelease();
@@ -80,7 +78,7 @@ public class PickUpBehaviour : MonoBehaviour
             //When the right hand trigger is let go, reset the vars
             _doRightRaycast = false;
             try {
-                _rightHandObj.transform.DetachChildren();
+                _rightHandObj.transform.SetParent(null);
                 //resetting the vars for the righthand obj if it implements IPickable
                 if (_rightHandObj.GetComponentInChildren<IPickable>() != null) {
                     _rightHandObj.GetComponent<IPickable>().Grabbed = false;
@@ -102,7 +100,8 @@ public class PickUpBehaviour : MonoBehaviour
 
             if(Physics.Raycast(_leftHandRay, out _leftHandHit, grabDistance)){
                 //if the ray hits something
-                if(_leftHandHit.collider.CompareTag("PickUp")){
+                if(_leftHandHit.collider.CompareTag("PickUp") && _leftHandObj == null)
+                {
                     //if the object has the tag of PickUp
                     _leftHandObj = _leftHandHit.transform.gameObject;
                 }
@@ -115,7 +114,8 @@ public class PickUpBehaviour : MonoBehaviour
 
             if(Physics.Raycast(_rightHandRay, out _rightHandHit, grabDistance)){
                 //if the ray hits something
-                if(_rightHandHit.collider.CompareTag("PickUp")){
+                if(_rightHandHit.collider.CompareTag("PickUp") && _rightHandObj == null)
+                {
                     //if the object has the tag of PickUp
                     _rightHandObj = _rightHandHit.transform.gameObject;
                 }

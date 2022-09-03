@@ -41,8 +41,8 @@ public class PlayerMovement : MonoBehaviour
             if(_stickInput != Vector2.zero){
                 //if there is input with the left thumbstick, move the rigidbody
                 _rb.isKinematic = false;
-                _rb.AddForce(centerEyeAnchor.transform.right * Normalise(_stickInput.x) * speed, ForceMode.VelocityChange);
-                _rb.AddForce(centerEyeAnchor.transform.forward * Normalise(_stickInput.y) * speed, ForceMode.VelocityChange);
+                _rb.AddForce(centerEyeAnchor.transform.right * _stickInput.normalized.x * speed, ForceMode.VelocityChange);
+                _rb.AddForce(centerEyeAnchor.transform.forward * _stickInput.normalized.y * speed, ForceMode.VelocityChange);
                 _rb.velocity = Vector3.ClampMagnitude(_rb.velocity, maxSpeed);
             }
             else{
@@ -61,18 +61,4 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private int Normalise(float f){ 
-        if(f < 0){
-            //if f is less than 0 return -1
-            return -1;
-        }
-        else if(f > 0){
-            //if f is more than 0, return 1
-            return 1;
-        }
-        else{
-            //if f is not less than nor more than 0, f == 0
-            return 0;
-        }
-    }
 }
