@@ -100,7 +100,8 @@ public class PickUpBehaviour : MonoBehaviour
 
             if(Physics.Raycast(_leftHandRay, out _leftHandHit, grabDistance)){
                 //if the ray hits something
-                if(_leftHandHit.collider.CompareTag("PickUp")){
+                if(_leftHandHit.collider.CompareTag("PickUp") && _leftHandObj == null)
+                {
                     //if the object has the tag of PickUp
                     _leftHandObj = _leftHandHit.transform.gameObject;
                 }
@@ -113,7 +114,8 @@ public class PickUpBehaviour : MonoBehaviour
 
             if(Physics.Raycast(_rightHandRay, out _rightHandHit, grabDistance)){
                 //if the ray hits something
-                if(_rightHandHit.collider.CompareTag("PickUp")){
+                if(_rightHandHit.collider.CompareTag("PickUp") && _rightHandObj == null)
+                {
                     //if the object has the tag of PickUp
                     _rightHandObj = _rightHandHit.transform.gameObject;
                 }
