@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 77277945}
   - component: {fileID: 77277944}
   m_Layer: 5
-  m_Name: CanvasHint
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15639,6 +15639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointerOrigin: {fileID: 1616715416}
+  transition: {fileID: 0}
 --- !u!65 &1514566512
 BoxCollider:
   m_ObjectHideFlags: 0
