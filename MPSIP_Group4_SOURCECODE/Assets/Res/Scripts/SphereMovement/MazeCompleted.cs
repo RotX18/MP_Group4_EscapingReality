@@ -41,7 +41,7 @@ public class MazeCompleted : MonoBehaviour, IPuzzle
         _battery.transform.SetPositionAndRotation(_battSpawner.transform.position, _battSpawner.transform.rotation);
 
         //when the maze is completed, set the maze to inactive
-        maze.SetActive(false);
+        //maze.SetActive(false);
 
         _text.text = "Charge the clocks";
     }
