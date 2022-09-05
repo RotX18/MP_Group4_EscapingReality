@@ -51,7 +51,7 @@ public class ClockActivator : MonoBehaviour
             }
 
             //setting the player instruction text
-            text.text = "Plot a course by the hours, \n Count the steps every minute.";
+            text.text = "Plot a course by the hours,\nCount the steps every minute.";
 
             //destroying this gameobject
             Destroy(gameObject);

@@ -54,7 +54,7 @@ public class GridManager : MonoBehaviour, IPuzzle
     #region INTERFACE METHODS
     public void OnComplete(){
         pointVisualiser.SetActive(false);
-        _text.text = "Temasek Polytechnic was founded in June 1974.";
+        _text.text = "Temasek Polytechnic was \nfounded in June 1974.";
     }
     #endregion
 
