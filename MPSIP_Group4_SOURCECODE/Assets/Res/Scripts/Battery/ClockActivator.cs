@@ -7,10 +7,11 @@ public class ClockActivator : MonoBehaviour
 {
     #region PUBLIC VARS
     public GameObject[] clocks;
-    public GameObject batteryHolder;
-    public TextMeshProUGUI _text;
     public GameObject arrowPointer;
-    public GameObject _textObj;
+    public GameObject batteryHolder;
+    public GameObject pointVisualiser;
+    public TextMeshProUGUI text;
+    public GameObject canvasUI;
     #endregion
 
     #region PRIVATE VARS
@@ -30,6 +31,9 @@ public class ClockActivator : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision) {
         if(collision.collider.name.Equals("Battery")){
+            //setting the line renderer to active
+            pointVisualiser.SetActive(true);
+
             //if the battery has hit this collider, set all clocks
             foreach(GameObject ele in clocks) {
                 ele.GetComponent<ClockTimer>().enabled = true;
@@ -39,13 +43,15 @@ public class ClockActivator : MonoBehaviour
             Destroy(collision.gameObject);
 
             //"inserting" the battery into the socket
-            Instantiate(batteryHolder, _objPos, _objRot);
+            _ = Instantiate(batteryHolder, _objPos, _objRot);
 
-            if (!_textObj.activeSelf) {
-                _textObj.SetActive(true);
+            if (canvasUI.activeSelf == false)
+            {
+                canvasUI.SetActive(true);
             }
+
             //setting the player instruction text
-            _text.text = "Plot a course by the hours, Count the steps every minute.";
+            text.text = "Plot a course by the hours, \n Count the steps every minute.";
 
             //destroying this gameobject
             Destroy(gameObject);
