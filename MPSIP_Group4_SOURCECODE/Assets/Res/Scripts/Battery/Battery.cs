@@ -5,8 +5,8 @@ using UnityEngine;
 public class Battery : MonoBehaviour, IPickable
 {
     #region PUBLIC VARS
-    public GameObject rCon;
     public GameObject lCon;
+    public GameObject rCon;
     public GameObject spawnerLocation;
     public float throwForce = 1;
     #endregion
@@ -29,7 +29,7 @@ public class Battery : MonoBehaviour, IPickable
     public IPickable.Controller CurrentController {
         get;
         set;
-    }
+    } = IPickable.Controller.None;
     #endregion
 
     #region INTERFACE METHODS
