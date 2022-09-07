@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] puzzles;
 
     //UI
+    public Animator UIanimation;
     public GameObject canvasUI;
     public GameObject canvasHint;
     #endregion
@@ -37,17 +39,12 @@ public class GameManager : MonoBehaviour
         }
         
         //hiding/unhiding the ui
-        if(OVRInput.GetDown(OVRInput.RawButton.X)){ 
-            if(canvasUI.activeInHierarchy){
-                //if the canvasUI is active, set it to inactive
-                canvasUI.SetActive(false);
-            }
-            else{
-                //else set it to active
-                canvasUI.SetActive(true);
-            }
+        if(OVRInput.GetDown(OVRInput.RawButton.Y)){
+
+            UIanimation.SetTrigger("ButtonTrigger");
+
         }
-        if(OVRInput.GetDown(OVRInput.RawButton.Y)){ 
+        if(OVRInput.GetDown(OVRInput.RawButton.X)){ 
             if(canvasHint.activeInHierarchy){
                 //if the canvasHint is active, set it to inactive
                 canvasHint.SetActive(false);

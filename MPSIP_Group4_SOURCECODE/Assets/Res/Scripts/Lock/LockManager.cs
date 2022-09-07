@@ -62,7 +62,7 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
     public void OnComplete(){
         TriggerLockAnimation(_unlockAnim);
         key.SetActive(true);
-        text.text = "Objective: Complete Puzzles";
+        text.text = "Escape the room";
     }
     #endregion
     #endregion

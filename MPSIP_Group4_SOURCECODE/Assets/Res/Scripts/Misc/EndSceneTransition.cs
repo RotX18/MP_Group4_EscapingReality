@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class EndSceneTransition : MonoBehaviour
 {
+    public Animator transition;
+    public GameObject pointVisualiser;
     private int _completedPuzzles = 0;
 
     private void OnCollisionEnter(Collision collision)
@@ -21,12 +23,19 @@ public class EndSceneTransition : MonoBehaviour
 
             if (_completedPuzzles == GameManager.i.puzzles.Length){
                 //if the number of completed puzzles = the total number of puzzles, load the end scene
-                SceneManager.LoadScene("EndScene");
+                StartCoroutine(LoadEndScene());
             }
             else{
                 //else, reset the completed count
                 _completedPuzzles = 0;
             }
         }
+    }
+
+    private IEnumerator LoadEndScene() {
+        transition.SetTrigger("Fade");
+        yield return new WaitForSeconds(1);
+        pointVisualiser.SetActive(true);
+        SceneManager.LoadScene("EndScene");
     }
 }

@@ -25,18 +25,22 @@ public class SphereMovement : MonoBehaviour
 	}
 	void Update()
 	{
-		playerInput.x = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x;
-		playerInput.y = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y;
+        if (!PlayerMovement.IsMoving)
+        {
+			playerInput.x = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x;
+			playerInput.y = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y;
 
-		//we do this to prevent the diagonal movement of the player input from exceed the value 
-		//we clamp it instead of normalizing it so that it is free directional
-		playerInput = Vector2.ClampMagnitude(playerInput, 1f);
+			//we do this to prevent the diagonal movement of the player input from exceed the value 
+			//we clamp it instead of normalizing it so that it is free directional
+			playerInput = Vector2.ClampMagnitude(playerInput, 1f);
 
-		//if needed acceleration can be used to change airmovement but for now there is no air movement so it is commented
-		//Vector3 acceleration = new Vector3(playerInput.x, 0f, playerInput.y) * maxSpeed;
+			//if needed acceleration can be used to change airmovement but for now there is no air movement so it is commented
+			//Vector3 acceleration = new Vector3(playerInput.x, 0f, playerInput.y) * maxSpeed;
 		
-		//set desiredvelocity to be players input multiplied by maxSpeed
-		desiredVelocity = new Vector3(playerInput.x, 0f, playerInput.y) * maxSpeed;
+			//set desiredvelocity to be players input multiplied by maxSpeed
+			desiredVelocity = new Vector3(playerInput.x, 0f, playerInput.y) * maxSpeed;
+
+        }
 	}
 
 	//in fixedupdate we do physics update here

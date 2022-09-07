@@ -10,6 +10,7 @@ using TMPro;
 public class GridManager : MonoBehaviour, IPuzzle
 {
     #region PUBLIC VARS
+    public GameObject pointVisualiser;
     public GridSpawner spawner;
     public int[] correctElementIDs;
     #endregion
@@ -52,8 +53,8 @@ public class GridManager : MonoBehaviour, IPuzzle
 
     #region INTERFACE METHODS
     public void OnComplete(){
-        Debug.Log("GRID HAS BEEN COMPLETED");
-        _text.text = "Temasek Polytechnic was founded in June 1974.";
+        pointVisualiser.SetActive(false);
+        _text.text = "Temasek Polytechnic was \nfounded in June 1974.";
     }
     #endregion
 

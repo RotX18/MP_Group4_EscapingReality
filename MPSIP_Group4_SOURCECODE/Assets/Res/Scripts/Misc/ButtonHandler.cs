@@ -7,11 +7,13 @@ using UnityEngine.SceneManagement;
 public class ButtonHandler : MonoBehaviour
 {
     public GameObject pointerOrigin;
+    public Animator transition;
 
     private Ray _pointerRay;
     private RaycastHit _hit;
     private GameObject _hitObj;
     private bool _doRaycast = false;
+    private float _timer = 0f;
 
     private void Update()
     {
@@ -27,7 +29,12 @@ public class ButtonHandler : MonoBehaviour
         //hit obj handling
         if (_hitObj != null && _hitObj.GetComponentInChildren<Button>() != null) {
             char[] remove = { 'b', 't', 'n' };
-            SceneManager.LoadScene(_hit.collider.name.TrimStart(remove));
+            transition.SetTrigger("Fade");
+            _timer += Time.deltaTime;
+            if (_timer > 1)
+            {
+                SceneManager.LoadScene(_hit.collider.name.TrimStart(remove));
+            }
         }
     }
 
@@ -45,4 +52,5 @@ public class ButtonHandler : MonoBehaviour
             }
         }
     }
+
 }
