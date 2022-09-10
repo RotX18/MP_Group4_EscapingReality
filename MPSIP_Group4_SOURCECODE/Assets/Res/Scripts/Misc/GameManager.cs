@@ -69,4 +69,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
         _runCheckCompletes = true;
     }
+
+    public void GameOver(){
+        Debug.Log("GAMEOVER");
+    }
 }
