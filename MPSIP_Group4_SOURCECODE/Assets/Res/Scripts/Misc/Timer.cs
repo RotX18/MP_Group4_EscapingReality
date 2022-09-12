@@ -11,7 +11,7 @@ public class Timer : MonoBehaviour
 
     #region PRIVATE VARS
     private float _minutes;
-    private float _seconds = 55;
+    private float _seconds = 0;
     #endregion
 
     private void Update() {
