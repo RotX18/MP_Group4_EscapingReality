@@ -1,4 +1,4 @@
-# MPSIP_Group4
+# MP_Group4_EscapingReality
 
 This is a VR project that is currently a work-in-progress.
 
