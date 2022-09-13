@@ -12,8 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] puzzles;
 
     //UI
-    public Animator UIanimation;
-    public GameObject canvasUI;
+    public Animator uiAnimation;
     public GameObject canvasHint;
     #endregion
 
@@ -40,11 +39,11 @@ public class GameManager : MonoBehaviour
         
         //hiding/unhiding the ui
         if(OVRInput.GetDown(OVRInput.RawButton.Y)){
-
-            UIanimation.SetTrigger("ButtonTrigger");
-
+            //if Y is pressed, trigger the animation
+            uiAnimation.SetTrigger("ButtonTrigger");
         }
         if(OVRInput.GetDown(OVRInput.RawButton.X)){ 
+            //if X is pressed, flip the state of the hint text
             if(canvasHint.activeInHierarchy){
                 //if the canvasHint is active, set it to inactive
                 canvasHint.SetActive(false);
@@ -68,9 +67,5 @@ public class GameManager : MonoBehaviour
         }
         yield return new WaitForEndOfFrame();
         _runCheckCompletes = true;
-    }
-
-    public void GameOver(){
-        Debug.Log("GAMEOVER");
     }
 }

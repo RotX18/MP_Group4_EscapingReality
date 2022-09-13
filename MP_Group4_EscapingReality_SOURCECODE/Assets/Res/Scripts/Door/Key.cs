@@ -6,7 +6,6 @@ public class Key : MonoBehaviour, IPickable
 {
     #region PUBLIC VARS
     public Animator anim;
-    public GameObject door;
     #endregion
 
     #region PRIVATE VARS

@@ -26,7 +26,7 @@ public class LockManager : MonoBehaviour, IPickable, IPuzzle
     public IPickable.Controller CurrentController {
         get;
         set;
-    }
+    } = IPickable.Controller.None;
 
     public bool Grabbed {
         get;
