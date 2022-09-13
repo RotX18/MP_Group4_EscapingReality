@@ -1,5 +1,5 @@
 # MP_Group4_EscapingReality
-A virtual reality escape rooom experience developed using the Unity game engine with the Oculus SDK for the open house of Temasek Polytechnic's Diploma in Game Design & Development.
+A virtual reality escape room experience developed using the Unity game engine with the Oculus SDK for the open house of Temasek Polytechnic's Diploma in Game Design & Development.
 
 ## Credits:
 ### Director
