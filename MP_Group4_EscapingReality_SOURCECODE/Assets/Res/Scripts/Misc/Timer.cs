@@ -10,7 +10,7 @@ public class Timer : MonoBehaviour
     #endregion
 
     #region PRIVATE VARS
-    private float _minutes;
+    private float _minutes = 0;
     private float _seconds = 0;
     #endregion
 
