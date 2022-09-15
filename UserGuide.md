@@ -5,22 +5,26 @@
 4. Extract the sourcecode file (MP_Group4_EscapingReality_SOURCECODE)
 5. Using Unity Hub, click Projects > Open and open the sourcecode file
 6. Ensure the following packages and assets are installed and present:
-Assets:
-	- Low poly city from Viuletti - Version 1.0 - Feb 12, 2019 (https://assetstore.unity.com/packages/3d/environments/urban/low-poly-city-from-viuletti-132536)
-	- Customizable Bedroom - Version 1.0 - Oct 13, 2016 (https://assetstore.unity.com/packages/3d/props/furniture/customizable-bedroom-72562#releases)
-If any assets are missing, they can be downloaded from the links above. Add the assets to your asset list and import them by going to Window > Package Manager > Packages: My Assets > Import
-Packages:
-	- Oculus XR Plugin: Version 3.0.2 - June 08, 2022
-	- MockHMD XR Plugin: Version 1.3.0-preview.1 - February 14, 2021
-	- TextMeshPro: Version 3.0.6 - April 22, 2021
-	- Timeline: Version 1.6.4 - January 27, 2022
-	- Unity UI: Version 1.0.0 - June 14, 2022
-	- Universal RP: Version 12.1.7 - June 14, 2022
-	- Version Control: Version 1.15.18 - May 23, 2022
-	- Visual Scripting: Version 1.7.8 - May 10, 2022
-	- Visual Studio Code Editor: Version 1.2.5 - February 09, 2022
-	- Visual Studio Editor: Version 2.0.15 - March 29, 2022
-If any packages are missing, they can be download by going to Window > Package Manager > Packages: Unity Registry and searching for and downloading them separately
+
+	Assets:
+
+		- Low poly city from Viuletti - Version 1.0 - Feb 12, 2019 (https://assetstore.unity.com/packages/3d/environments/urban/low-poly-city-from-viuletti-132536)
+		- Customizable Bedroom - Version 1.0 - Oct 13, 2016 (https://assetstore.unity.com/packages/3d/props/furniture/customizable-bedroom-72562#releases)
+	If any assets are missing, they can be downloaded from the links above. Add the assets to your asset list and import them by going to Window > Package Manager > Packages: My Assets > Import
+
+	Packages:
+
+		- Oculus XR Plugin: Version 3.0.2 - June 08, 2022
+		- MockHMD XR Plugin: Version 1.3.0-preview.1 - February 14, 2021
+		- TextMeshPro: Version 3.0.6 - April 22, 2021
+		- Timeline: Version 1.6.4 - January 27, 2022
+		- Unity UI: Version 1.0.0 - June 14, 2022
+		- Universal RP: Version 12.1.7 - June 14, 2022
+		- Version Control: Version 1.15.18 - May 23, 2022
+		- Visual Scripting: Version 1.7.8 - May 10, 2022
+		- Visual Studio Code Editor: Version 1.2.5 - February 09, 2022
+		- Visual Studio Editor: Version 2.0.15 - March 29, 2022
+	If any packages are missing, they can be download by going to Window > Package Manager > Packages: Unity Registry and searching for and downloading them separately
 
 7. Download and install the Oculus app (for Oculus Rift S) from https://store.facebook.com/quest/setup/
 8. Launch the Oculus app and follow the instructions in the app to setup the headset
