@@ -4,7 +4,7 @@
 3. Download the Unity project from GitHub (https://github.com/RotX18/MP_Group4_EscapingReality) by clicking on Code > Download ZIP
 4. Extract the sourcecode file (MP_Group4_EscapingReality_SOURCECODE)
 5. Using Unity Hub, click Projects > Open and open the sourcecode file
-6. Ensure the following packages and assets are installed and present:
+6. Ensure the following assets and packages are installed and present:
 
 	Assets:
 
