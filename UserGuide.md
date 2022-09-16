@@ -31,3 +31,8 @@
 9. After setting up the headset, open the Unity Editor and go to Edit > ProjectSettings > XR Plug-in Management
 10. Enable Oculus in the Plug-in Providers section
 11. After doing the above stteps, the project is now set up and ready for development
+
+# Build Usage Guide:
+1. Ensure your occulus app is open
+2. Plug in your rift s headset
+3. Open the Exe file 
