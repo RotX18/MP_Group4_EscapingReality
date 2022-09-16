@@ -33,6 +33,7 @@
 11. After doing the above stteps, the project is now set up and ready for development
 
 # Build Usage Guide:
-1. Ensure your occulus app is open
-2. Plug in your rift s headset
-3. Open the Exe file 
+1. Extract the build file from the zip
+2. Ensure your occulus app is open
+3. Plug in and set up your Oculus Rift S headset
+4. Open the extracted build file and double click the .exe file
