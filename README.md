@@ -20,7 +20,7 @@ A virtual reality escape room experience developed using the Unity game engine w
 >- Ryan Oh (Lead)
 
 ### Developer
-> Programmed and developed the Escaping Reality
+> Programmed and developed the Escaping Reality game
 >- Ryan Oh (Lead)
 >- Stanley Lu
 
